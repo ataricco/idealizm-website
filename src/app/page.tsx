@@ -39,7 +39,7 @@ export default function Home() {
         pointerEvents: final ? "auto" : "none",
       }}
     >
-      <div className="z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6">
+      <div className="z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
         <h1 className="underline underline-offset-[20px]">Liz Myska</h1>
         <div className="space-y-2">
           <h2 className="text-3xl">Accesibility Analyst</h2>
@@ -80,9 +80,9 @@ export default function Home() {
         <h1>See the bigger picture</h1>
       </div>
       {!final && (
-        <div className="z-10 absolute w-28 h-28 bottom-10 left-1/2 text-foreground text-white animate-bounce">
+        <div className="z-10 absolute w-28 h-28 bottom-10 text-foreground text-white animate-bounce left-1/2">
           <img
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transform -translate-x-1/2"
             src="down.svg"
             alt="down arrow"
           />
