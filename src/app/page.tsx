@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
+import PillButton from "@/components/pillButton";
 
 export default function Home() {
   const [zoom, setZoom] = useState(200);
@@ -31,17 +32,27 @@ export default function Home() {
 
   const afterContent = (
     <div
-      className="z-10 absolute top-28 left-10 text-6xl text-foreground text-white space-y-6"
       style={{
         opacity: final ? 1 : 0,
         transition: "opacity 0.5s ease-in-out",
+        // pointerEvents property is used to prevent the user from interacting with the content until they scroll down
         pointerEvents: final ? "auto" : "none",
       }}
     >
-      <h1 className="underline underline-offset-[20px]">Liz Myska</h1>
-      <div className="space-y-2">
-        <h2 className="text-3xl">Accesibility Analyst</h2>
-        <h2 className="text-3xl">On-Site Trainings for the Sighted</h2>
+      <div className="z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6">
+        <h1 className="underline underline-offset-[20px]">Liz Myska</h1>
+        <div className="space-y-2">
+          <h2 className="text-3xl">Accesibility Analyst</h2>
+          <h2 className="text-3xl">On-Site Trainings for the Sighted</h2>
+        </div>
+      </div>
+      <div className="flex flex-row space-x-5 absolute bottom-20 left-1/2 transform -translate-x-1/2">
+        <PillButton colorIndex={0}>
+          <p className="p-3 mt-1 text-xl font-bold">Contact Me</p>
+        </PillButton>
+        <PillButton colorIndex={0}>
+          <p className="p-3 mt-1 text-xl font-bold">About Me</p>
+        </PillButton>
       </div>
     </div>
   );

@@ -15,4 +15,18 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    "hover:bg-slate-50",
+    "hover:bg-slate-100",
+    "hover:bg-slate-200",
+    "hover:bg-slate-300",
+    "hover:bg-slate-400",
+    "hover:bg-slate-500",
+    "hover:bg-slate-600",
+    "hover:bg-slate-700",
+    "hover:bg-slate-800",
+    "hover:bg-slate-900",
+    "hover:text-white",
+    "hover:text-black",
+  ],
 } satisfies Config;
