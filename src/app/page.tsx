@@ -141,7 +141,9 @@ export default function Home() {
           transition: "opacity 0.5s ease-in-out",
         }}
       >
-        <h1>See the bigger picture</h1>
+        <div className = "z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
+          <h1>See the bigger picture</h1>
+        </div>
       </div>
       {!final && (
         <div className="z-10 absolute w-28 h-28 bottom-10 text-foreground text-white animate-bounce left-1/2">

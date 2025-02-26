@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
+import StickyNavbar from "@/components/stickyNavbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,9 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
       <body className={`antialiased`}>
-        <Navbar />
+        <StickyNavbar />
         {children}
       </body>
     </html>
