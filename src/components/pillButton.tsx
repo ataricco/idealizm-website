@@ -33,7 +33,6 @@ export default function PillButton(props: PillButtonProps) {
   const { colorIndex = 0, onClick } = props;
   const hoverColor = Object.keys(colorClasses).length - 1 - colorIndex;
 
-  console.log(hoverColor, typeof hoverColor);
   return (
     <button
       className={`p-2 ${colorClasses[colorIndex]} ${getTextColor(
