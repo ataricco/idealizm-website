@@ -4,13 +4,10 @@ import { useState } from "react";
 import BarIcon from "./barIcon";
 
 const pages = [
-  "Home",
-  "My Story",
-  "Hiking in the Dark",
-  "White Cane Day",
-  "WalkFit",
-  "Public Health",
-  "Contact",
+  "Consult",
+  "Collaborate",
+  "Commingle",
+  "Contact"
 ];
 
 export default function Navbar() {

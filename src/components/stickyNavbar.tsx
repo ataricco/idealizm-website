@@ -5,15 +5,12 @@ export default function StickyNavbar() {
     <nav className="fixed top-0 left-0 z-50 w-full bg-slate-900 bg-opacity-80 rounded-lg text-white md:px-8 py-4 z-30">
       <div className="w-full flex justify-between items-center md:px-8 py-2">
         {/* left 3 links */}
-        <section className="flex space-x-4 flex-1">
-          <Link href="/story" className="hover:underline">
-            My Story
+        <section className="flex space-x-40 flex-1">
+          <Link href="/consult" className="hover:underline">
+            Consult
           </Link>
-          <Link href="/hiking" className="hover:underline">
-            Hiking in the Dark
-          </Link>
-          <Link href="/cane-day" className="hover:underline">
-            Worcester White Cane Day
+          <Link href="/collaborate" className="hover:underline">
+            Collaborate
           </Link>
         </section>
 
@@ -25,15 +22,12 @@ export default function StickyNavbar() {
         </section>
 
         {/* right 3 links */}
-        <section className="flex space-x-4 flex-1 justify-end">
-          <Link href="/walkfit" className="hover:underline">
-            WalkFit
-          </Link>
-          <Link href="/health" className="hover:underline">
-            Public Health
+        <section className="flex space-x-40 flex-1 justify-end">
+          <Link href="/commingle" className="hover:underline">
+            Commingle
           </Link>
           <Link href="/contact" className="hover:underline">
-            Contact Us
+            Contact
           </Link>
         </section>
       </div>
