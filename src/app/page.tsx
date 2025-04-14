@@ -57,8 +57,9 @@ export default function Home() {
         </PillButton>
         <PillButton colorIndex={0}>
           <p className="p-3 mt-1 text-xl font-bold">About Me</p>
-        </PillButton>
+        </PillButton> 
       </div>
+      {/*gradient thing */}
       <div className="w-full bg-blend-lighten bg-gradient-to-b from-transparent to-slate-50 h-20 absolute bottom-0" />
     </div>
   );
