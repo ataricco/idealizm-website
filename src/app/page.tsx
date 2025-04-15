@@ -47,7 +47,7 @@ export default function Home() {
       <div className="z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
         <h1 className="underline underline-offset-[20px]">Liz Myska</h1>
         <div className="space-y-2">
-          <h2 className="text-3xl">Accesibility Analyst</h2>
+          <h2 className="text-3xl">Accessibility Analyst</h2>
           <h2 className="text-3xl">On-Site Trainings for the Sighted</h2>
         </div>
       </div>
@@ -105,6 +105,83 @@ export default function Home() {
     </div>
   );
 
+  const panelContent = (
+    <div>
+      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+        {/* Left Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
+          <h2 className="text-4xl font-bold text-[#004459] mb-4">
+            Street Smarts - What you don't see
+          </h2>
+          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+          We provide interactive workshops for sighted individuals to better understand
+          the experiences of visually impaired people, fostering a more inclusive community.
+          </p>
+          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+            Learn More
+          </button>
+        </div>
+  
+        {/* Right Image Section */}
+        <div className="lg:w-1/2 flex justify-center">
+          <img
+            src="background.JPG"
+            alt="Street Crossing"
+            className="max-w-full rounded-lg shadow-lg"
+          />
+        </div>
+      </section>
+  
+      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+        {/* Left Image Section */}
+        <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
+        <img
+        src="HuntingtonAveTraining.JPG"
+        alt=""
+        className="max-w-full rounded-lg shadow-lg"
+        />
+        </div>
+        {/* Right Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2" >
+          <h2 className="text-4xl font-bold text-[#004459] mb-4">
+            Consultation - Senses & Sensitivity
+          </h2>
+        <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+          Liz will inform and educate you, your agency, your organization, and supply you
+          with her unique analysis.
+        </p>
+        <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+          Learn More
+        </button>
+        </div>
+      </section>
+  
+      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+        {/* Left Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
+          <h2 className="text-4xl font-bold text-[#004459] mb-4">
+            Community Building - Interactive & Interpersonal
+          </h2>
+          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+            Explore the many initiatives, including WalkFit, White Cane Day, and TalkFit.
+          </p>
+          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+            Learn More
+          </button>
+        </div>
+  
+        {/* Right Image Section */}
+        <div className="lg:w-1/2 flex justify-center">
+          <img
+            src="BusinessImprovementDistrictGroup.jpg"
+            alt="Business Improvement District Group"
+            className="max-w-full rounded-lg shadow-lg"
+          />
+        </div>
+      </section>
+  </div>
+  );
+
   const carousel = (
     <div className="flex flex-row m-10 text-black">
       <div>
@@ -157,6 +234,7 @@ export default function Home() {
       )}
       {invisibleContent}
       {final && bottomContent}
+      {final && panelContent}
     </>
   );
 }
