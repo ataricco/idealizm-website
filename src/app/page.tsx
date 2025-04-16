@@ -64,6 +64,114 @@ export default function Home() {
     </div>
   );
 
+  const profileContent = (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="flex flex-col sm:flex-row items-center gap-12 p-12 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
+        <img
+          src="LizMyskaProfile.JPG"
+          alt="Profile of Liz Myska"
+          className="w-96 h-96 object-cover rounded-full"
+          // className="w-96 h-96 object-cover border-4 border-slate-500 rounded-full"
+        />
+        <div className="text-gray-700 text-lg leading-relaxed max-w-3xl space-y-4">
+          <p className="font-extrabold text-2xl">When you viewed the image above, what did you see?</p>
+          <p>My name is <span className="font-bold">Liz Myska</span>.  Until 2008, my response to the
+          question "What do you see in this photo" would have been "I see a streetscape; there is a crosswalk
+          and a pedestrian."  This is what caught my eye. I would not necessarily have commented further.</p>
+          <p>On further examination of the image, I might have volunteered that the
+          pedestrian was a blind person who was at risk of a collision with a motor vehicle.</p>
+          <p>I, Liz Myska, am the pedestrian depicted in this photo. In 2008, I was decreed
+          to be legally blind. Horses were switched midstride. I moved from being sighted
+          to being a VIP - Visually Impaired Person. I immediately became a non-driver. No
+          longer was I viewing the world from behind the wheel. My visual perception and
+          my relationship with it changed.</p>
+          <p>Visual perception involves taking in, interpreting, and synthesizing visual
+          information about the environment and the beings that inhabit it.  I began analyzing
+          spaces, places, objects, and creatures from a different vantage point and a different
+          perspective once I became a VIP. It is that vantage point and that perspective you
+          gain and benefit from consulting and allying with me.</p>
+        </div>
+      </div>
+    </div>
+  )
+
+  const panelContent = (
+    <div>
+      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+        {/* Left Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
+          <h2 className="text-4xl font-bold text-[#004459] mb-4">
+            Street Smarts - What you don't see
+          </h2>
+          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+          We provide interactive workshops for sighted individuals to better understand
+          the experiences of visually impaired people, fostering a more inclusive community.
+          </p>
+          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+            Learn More
+          </button>
+        </div>
+  
+        {/* Right Image Section */}
+        <div className="lg:w-1/2 flex justify-center">
+          <img
+            src="background.JPG"
+            alt="Street Crossing"
+            className="max-w-full shadow-lg" /*rounded-lg*/
+          />
+        </div>
+      </section>
+  
+      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+        {/* Left Image Section */}
+        <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
+        <img
+        src="HuntingtonAveTraining.JPG"
+        alt=""
+        className="max-w-full shadow-lg"   /*rounded-lg*/
+        />
+        </div>
+        {/* Right Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2" >
+          <h2 className="text-4xl font-bold text-[#004459] mb-4">
+            Consultation - Senses & Sensitivity
+          </h2>
+        <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+          Liz will inform and educate you, your agency, your organization, and supply you
+          with her unique analysis.
+        </p>
+        <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+          Learn More
+        </button>
+        </div>
+      </section>
+  
+      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+        {/* Left Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
+          <h2 className="text-4xl font-bold text-[#004459] mb-4">
+            Community Building - Interactive
+          </h2>
+          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+            Explore the many initiatives, including WalkFit, White Cane Day, and TalkFit.
+          </p>
+          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+            Learn More
+          </button>
+        </div>
+  
+        {/* Right Image Section */}
+        <div className="lg:w-1/2 flex justify-center">
+          <img
+            src="BusinessImprovementDistrictGroup.jpg"
+            alt="Business Improvement District Group"
+            className="max-w-full shadow-lg"   /*rounded-lg*/
+          />
+        </div>
+      </section>
+  </div>
+  );
+
   const bottomContent = (
     <div className="flex flex-row m-10 space-x-10 text-black">
       <div>
@@ -103,83 +211,6 @@ export default function Home() {
         </p>
       </div>
     </div>
-  );
-
-  const panelContent = (
-    <div>
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
-        {/* Left Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
-          <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Street Smarts - What you don't see
-          </h2>
-          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-          We provide interactive workshops for sighted individuals to better understand
-          the experiences of visually impaired people, fostering a more inclusive community.
-          </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-            Learn More
-          </button>
-        </div>
-  
-        {/* Right Image Section */}
-        <div className="lg:w-1/2 flex justify-center">
-          <img
-            src="background.JPG"
-            alt="Street Crossing"
-            className="max-w-full rounded-lg shadow-lg"
-          />
-        </div>
-      </section>
-  
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
-        {/* Left Image Section */}
-        <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
-        <img
-        src="HuntingtonAveTraining.JPG"
-        alt=""
-        className="max-w-full rounded-lg shadow-lg"
-        />
-        </div>
-        {/* Right Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2" >
-          <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Consultation - Senses & Sensitivity
-          </h2>
-        <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-          Liz will inform and educate you, your agency, your organization, and supply you
-          with her unique analysis.
-        </p>
-        <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-          Learn More
-        </button>
-        </div>
-      </section>
-  
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
-        {/* Left Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
-          <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Community Building - Interactive & Interpersonal
-          </h2>
-          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-            Explore the many initiatives, including WalkFit, White Cane Day, and TalkFit.
-          </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-            Learn More
-          </button>
-        </div>
-  
-        {/* Right Image Section */}
-        <div className="lg:w-1/2 flex justify-center">
-          <img
-            src="BusinessImprovementDistrictGroup.jpg"
-            alt="Business Improvement District Group"
-            className="max-w-full rounded-lg shadow-lg"
-          />
-        </div>
-      </section>
-  </div>
   );
 
   const carousel = (
@@ -233,7 +264,7 @@ export default function Home() {
         </div>
       )}
       {invisibleContent}
-      {final && bottomContent}
+      {final && profileContent}
       {final && panelContent}
     </>
   );
