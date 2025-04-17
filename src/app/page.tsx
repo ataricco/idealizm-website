@@ -3,6 +3,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import PillButton from "@/components/pillButton";
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 export default function Home() {
   const [zoom, setZoom] = useState(200);
   const [translateX, setTranslateX] = useState(75);
@@ -22,6 +25,10 @@ export default function Home() {
       setFinal(true);
     } else {
       setFinal(false);
+    }
+
+    if (typeof window !== 'undefined') {
+      AOS.init({ duration: 800, once: true });
     }
 
     if (!final) {
