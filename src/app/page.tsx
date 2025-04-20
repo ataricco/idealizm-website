@@ -2,9 +2,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import PillButton from "@/components/pillButton";
+import Link from "next/link";
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const [zoom, setZoom] = useState(200);
@@ -27,9 +28,11 @@ export default function Home() {
       setFinal(false);
     }
 
-    if (typeof window !== 'undefined') {
+    /*
+    if (typeof window !== "undefined") {
       AOS.init({ duration: 800, once: true });
     }
+      */
 
     if (!final) {
       window.addEventListener("wheel", handleWheel);
@@ -64,7 +67,7 @@ export default function Home() {
         </PillButton>
         <PillButton colorIndex={0}>
           <p className="p-3 mt-1 text-xl font-bold">About Me</p>
-        </PillButton> 
+        </PillButton>
       </div>
       {/*gradient thing */}
       <div className="w-full bg-blend-lighten bg-gradient-to-b from-transparent to-slate-50 h-20 absolute bottom-0" />
@@ -72,8 +75,8 @@ export default function Home() {
   );
 
   const profileContent = (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="flex flex-col sm:flex-row items-center gap-12 p-12 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
+    <div className="min-h-fit flex items-center justify-center bg-white py-24">
+      <div className="flex flex-col lg:flex-row items-center gap-12 p-12 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
         <img
           src="LizMyskaProfile.JPG"
           alt="Profile of Liz Myska"
@@ -81,159 +84,124 @@ export default function Home() {
           // className="w-96 h-96 object-cover border-4 border-slate-500 rounded-full"
         />
         <div className="text-gray-700 text-lg leading-relaxed max-w-3xl space-y-4">
-          <p className="font-extrabold text-2xl">When you viewed the image above, what did you see?</p>
-          <p>My name is <span className="font-bold">Liz Myska</span>.  Until 2008, my response to the
-          question "What do you see in this photo" would have been "I see a streetscape; there is a crosswalk
-          and a pedestrian."  This is what caught my eye. I would not necessarily have commented further.</p>
-          <p>On further examination of the image, I might have volunteered that the
-          pedestrian was a blind person who was at risk of a collision with a motor vehicle.</p>
-          <p>I, Liz Myska, am the pedestrian depicted in this photo. In 2008, I was decreed
-          to be legally blind. Horses were switched midstride. I moved from being sighted
-          to being a VIP - Visually Impaired Person. I immediately became a non-driver. No
-          longer was I viewing the world from behind the wheel. My visual perception and
-          my relationship with it changed.</p>
-          <p>Visual perception involves taking in, interpreting, and synthesizing visual
-          information about the environment and the beings that inhabit it.  I began analyzing
-          spaces, places, objects, and creatures from a different vantage point and a different
-          perspective once I became a VIP. It is that vantage point and that perspective you
-          gain and benefit from consulting and allying with me.</p>
+          <p className="font-extrabold text-2xl">
+            When you viewed the image above, what did you see?
+          </p>
+          <p>
+            My name is <span className="font-bold">Liz Myska</span>. Until 2008,
+            my response to the question "What do you see in this photo" would
+            have been "I see a streetscape; there is a crosswalk and a
+            pedestrian." This is what caught my eye. I would not necessarily
+            have commented further.
+          </p>
+          <p>
+            On further examination of the image, I might have volunteered that
+            the pedestrian was a blind person who was at risk of a collision
+            with a motor vehicle.
+          </p>
+          <p>
+            I, Liz Myska, am the pedestrian depicted in this photo. In 2008, I
+            was decreed to be legally blind. Horses were switched midstride. I
+            moved from being sighted to being a VIP - Visually Impaired Person.
+            I immediately became a non-driver. No longer was I viewing the world
+            from behind the wheel. My visual perception and my relationship with
+            it changed.
+          </p>
+          <p>
+            Visual perception involves taking in, interpreting, and synthesizing
+            visual information about the environment and the beings that inhabit
+            it. I began analyzing spaces, places, objects, and creatures from a
+            different vantage point and a different perspective once I became a
+            VIP. It is that vantage point and that perspective you gain and
+            benefit from consulting and allying with me.
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 
   const panelContent = (
     <div>
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+      <section className="flex flex-col lg:flex-row items-center justify-around bg-white my-10 mt-0">
         {/* Left Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
-          <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Street Smarts - What you don't see
+        <div className="lg:w-1/2 h-full w-3/4 py-11 rounded-3xl text-center lg:text-left mb-10 lg:mb-0 px-6 lg:px-16 bg-[#f6f5f0] shadow-lg">
+          <h2 className="text-4xl font-bold text-[#004459] mb-4 my-4">
+            Street Smarts: What you don't see
           </h2>
-          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-          We provide interactive workshops for sighted individuals to better understand
-          the experiences of visually impaired people, fostering a more inclusive community.
+          <p className="text-[#004459] text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 py-5">
+            We provide interactive workshops for sighted individuals to better
+            understand the experiences of visually impaired people, fostering a
+            more inclusive community.
           </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-            Learn More
-          </button>
+          <Link href={"/collaborate"}>
+            <button className="mt-10 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+              Learn More
+            </button>
+          </Link>
         </div>
-  
+
         {/* Right Image Section */}
-        <div className="lg:w-1/2 flex justify-center">
+        <div className="lg:h-96 lg:w-auto w-3/4 rounded-3xl shadow-lg flex justify-center">
           <img
             src="background.JPG"
             alt="Street Crossing"
-            className="max-w-full shadow-lg" /*rounded-lg*/
+            className="max-w-full rounded-3xl shadow-lg" /*rounded-lg*/
           />
         </div>
       </section>
-  
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+
+      <section className="flex flex-col lg:flex-row items-center justify-around bg-white my-10">
         {/* Left Image Section */}
-        <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
-        <img
-        src="HuntingtonAveTraining.JPG"
-        alt=""
-        className="max-w-full shadow-lg"   /*rounded-lg*/
-        />
+        <div className="lg:h-96 lg:w-auto w-3/4 rounded-3xl shadow-lg flex order-2 lg:order-1">
+          <img
+            src="HuntingtonAveTraining.JPG"
+            alt=""
+            className="max-w-full rounded-3xl shadow-lg" /*rounded-lg*/
+          />
         </div>
         {/* Right Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2" >
-          <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Consultation - Senses & Sensitivity
+        <div className="lg:w-1/2 w-3/4 py-16 rounded-3xl text-center lg:text-left mb-10 lg:mb-0 px-6 lg:px-16 bg-[#f6f5f0] shadow-lg order-1 lg:order-2">
+          <h2 className="text-4xl font-bold text-[#004459] mb-4 my-4">
+            Consultation: Senses & Sensitivity
           </h2>
-        <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-          Liz will inform and educate you, your agency, your organization, and supply you
-          with her unique analysis.
-        </p>
-        <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-          Learn More
-        </button>
+          <p className="text-[#004459] text-xl leading-relaxed max-w-lg mx-auto lg:mx-0 py-5">
+            Liz will inform and educate you, your agency, your organization, and
+            supply you with her unique analysis.
+          </p>
+          <Link href={"/consult"}>
+            <button className="mt-7 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+              Learn More
+            </button>
+          </Link>
         </div>
       </section>
-  
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+
+      <section className="flex flex-col lg:flex-row items-center justify-around bg-white my-10">
         {/* Left Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
-          <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Community Building - Interactive
+        <div className="lg:w-1/2 h-full w-3/4 py-14 rounded-3xl text-center lg:text-left mb-10 lg:mb-0 px-6 lg:px-16 bg-[#f6f5f0] shadow-lg">
+          <h2 className="text-4xl font-bold text-[#004459] mb-6 my-4">
+            Community Building: Interactive
           </h2>
-          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-            Explore the many initiatives, including WalkFit, White Cane Day, and TalkFit.
+          <p className="text-[#004459] text-xl leading-relaxed max-w-lg mx-auto lg:mx-0 py-5">
+            Explore the many initiatives, including WalkFit, White Cane Day, and
+            TalkFit.
           </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-            Learn More
-          </button>
+          <Link href={"/commingle"}>
+            <button className="mt-10 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+              Learn More
+            </button>
+          </Link>
         </div>
-  
+
         {/* Right Image Section */}
-        <div className="lg:w-1/2 flex justify-center">
+        <div className="lg:h-96 lg:w-auto w-3/4 rounded-3xl shadow-lg flex justify-center">
           <img
             src="BusinessImprovementDistrictGroup.jpg"
             alt="Business Improvement District Group"
-            className="max-w-full shadow-lg"   /*rounded-lg*/
+            className="max-w-full rounded-3xl shadow-lg" /*rounded-lg*/
           />
         </div>
       </section>
-  </div>
-  );
-
-  const bottomContent = (
-    <div className="flex flex-row m-10 space-x-10 text-black">
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-    </div>
-  );
-
-  const carousel = (
-    <div className="flex flex-row m-10 text-black">
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
     </div>
   );
 
@@ -257,7 +225,7 @@ export default function Home() {
           transition: "opacity 0.5s ease-in-out",
         }}
       >
-        <div className = "z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
+        <div className="z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
           <h1>See the bigger picture</h1>
         </div>
       </div>

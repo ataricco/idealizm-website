@@ -14,7 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning> {/* suppresses hydration warnings that can be caused by certain extensions (doesn't affect functionality)*/}
+    <html lang="en" suppressHydrationWarning={true}>
+      {" "}
+      {/* suppresses hydration warnings that can be caused by certain extensions (doesn't affect functionality)*/}
       <body suppressHydrationWarning className={`antialiased`}>
         <StickyNavbar />
         {children}
