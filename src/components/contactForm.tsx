@@ -54,17 +54,17 @@ const ContactForm = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 flex flex-col gap-8 rounded-xl">
       {/* Intro Section */}
-      <div className="{bg-[#fcf3cc] p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold mb-4 text-[#004459]-800">Ready to make your organization more VIP friendly?</h2>
-        <h2 className="text-xl font-bold mb-4 text-[#004459]-800">Looking for advice about practices or protocols?</h2>
-        <p className="text-[#004459]-700 mb-4">
+      <div className="{bg-primaryYellow p-6 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4 text-textBlue-800">Ready to make your organization more VIP friendly?</h2>
+        <h2 className="text-xl font-bold mb-4 text-textBlue-800">Looking for advice about practices or protocols?</h2>
+        <p className="text-textBlue-700 mb-4">
           Message me through this form, and someone will get back to you as soon as possible.
         </p>
       </div>
 
       {/* Form Section */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <h3 className="text-lg font-bold mb-6 text-graytext-[#004459]800">Contact Plan Consulting</h3>
+        <h3 className="text-lg font-bold mb-6 text-graytext-textBlue800">Contact Plan Consulting</h3>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* First Name */}
           <div>
@@ -147,7 +147,7 @@ const ContactForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#fcf3cc] text-[#004459] font-bold py-3 rounded-xl hover:bg-green-200 transition"
+            className="w-full bg-primaryYellow text-textBlue font-bold py-3 rounded-xl hover:bg-green-200 transition"
           >
             Submit
           </button>
