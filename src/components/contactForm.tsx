@@ -1,34 +1,32 @@
-import React, { useState } from 'react';
-import './ContactForm.css'; // We'll create this for styling
+import React, { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    companyName: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    companyName: "",
+    message: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
-    setFormData(prev => ({
+    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  {/* handle form submission by pushing to our google sheet*/}
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     const scriptURL = process.env.NEXT_PUBLIC_SCRIPT_URL; // Replace with your Web App URL
     if (!scriptURL) {
       alert("Script URL is not defined. Please check your environment variables.");
       return;
     }
-  
+
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
@@ -38,15 +36,15 @@ const ContactForm = () => {
         },
         body: JSON.stringify(formData),
       });
-  
-        alert("Thank you for your message! Your response has been recorded.");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          companyName: "",
-          message: "",
-        });
+
+      alert("Thank you for your message! Your response has been recorded.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        companyName: "",
+        message: "",
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("There was an error submitting your form. Please try again.");
@@ -54,26 +52,25 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-container">
-      <div className="intro-section">
-        <h2>Ready to make your organization more VIP friendly?</h2>
-        <h2>Looking for advice about practices or protocols?</h2>
-        
-        <p>Message me through this form, and someone will get back to you as soon as possible.</p>
-        
-        {/*temporary categories */}
-        <div className="contact-options">
-          <p><strong>Email:</strong> lizmyska@gmail.com</p>
-          <p><strong>Schedule a Zoom Meeting</strong></p>
-          <p><strong>See Calendar</strong></p>
-        </div>
+    <div className="max-w-4xl mx-auto p-6 flex flex-col gap-8 rounded-xl">
+      {/* Intro Section */}
+      <div className="{bg-[#fcf3cc] p-6 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4 text-[#004459]-800">Ready to make your organization more VIP friendly?</h2>
+        <h2 className="text-xl font-bold mb-4 text-[#004459]-800">Looking for advice about practices or protocols?</h2>
+        <p className="text-[#004459]-700 mb-4">
+          Message me through this form, and someone will get back to you as soon as possible.
+        </p>
       </div>
 
-      <div className="form-section">
-        <h3>Contact Plan Consulting</h3>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
+      {/* Form Section */}
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-6 text-graytext-[#004459]800">Contact Plan Consulting</h3>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* First Name */}
+          <div>
+            <label htmlFor="firstName" className="block font-bold mb-2">
+              First Name
+            </label>
             <input
               type="text"
               id="firstName"
@@ -81,11 +78,15 @@ const ContactForm = () => {
               value={formData.firstName}
               onChange={handleChange}
               required
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
+
+          {/* Last Name */}
+          <div>
+            <label htmlFor="lastName" className="block font-bold mb-2">
+              Last Name
+            </label>
             <input
               type="text"
               id="lastName"
@@ -93,11 +94,15 @@ const ContactForm = () => {
               value={formData.lastName}
               onChange={handleChange}
               required
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
+
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block font-bold mb-2">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -105,32 +110,47 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="companyName">Company Name</label>
+
+          {/* Company Name */}
+          <div>
+            <label htmlFor="companyName" className="block font-bold mb-2">
+              Company Name
+            </label>
             <input
               type="text"
               id="companyName"
               name="companyName"
               value={formData.companyName}
               onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
             />
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
+
+          {/* Message */}
+          <div>
+            <label htmlFor="message" className="block font-bold mb-2">
+              Message
+            </label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
+              className="w-full p-3 border border-gray-300 rounded-lg resize-vertical"
             />
           </div>
-          
-          <button type="submit" className="submit-btn">Submit</button>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-[#fcf3cc] text-[#004459] font-bold py-3 rounded-xl hover:bg-green-200 transition"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

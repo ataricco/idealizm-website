@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/navbar";
 import StickyNavbar from "@/components/stickyNavbar";
 import "./globals.css";
 
