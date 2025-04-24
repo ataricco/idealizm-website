@@ -12,7 +12,7 @@ export default function Contact() {
             <header className="pt-40 text-center py-16 px-6 bg-amber-100 shadow-md">
                 <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">Contact</h1>
                 <p className="text-lg lg:text-xl max-w-2xl mx-auto">
-                Interested? Reach out! We'll respond as quickly as we can.
+                How can IdeaLizm help you?
                 </p>
             </header>
 
@@ -22,13 +22,4 @@ export default function Contact() {
         </div>
 
     );
-    
-    {/* template
-    return (
-        <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
-        <h1 className="text-4xl font-bold">Contact</h1>
-        <p className="mt-4 text-lg">Contact us here.</p>
-        </div>
-    );
-    */}
 }

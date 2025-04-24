@@ -60,10 +60,10 @@ const ContactForm = () => {
     <div className="max-w-4xl mx-auto p-6 flex flex-col gap-8 rounded-xl">
       {/* Intro Section */}
       <div className="{bg-primaryYellow p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold mb-4 text-textBlue-800">Ready to make your organization more VIP friendly?</h2>
-        <h2 className="text-xl font-bold mb-4 text-textBlue-800">Looking for advice about practices or protocols?</h2>
+        <h2 className="text-xl font-bold mb-4 text-textBlue-800">Regardless of the ask, iteration or initiative, Liz M
+        and the services she offers are distinctive, unpatrolled, and invaluable.</h2>
         <p className="text-textBlue-700 mb-4">
-          Message me through this form, and someone will get back to you as soon as possible.
+        Liaison with Liz to dialogue, discuss, determine, and decide.
         </p>
       </div>
 

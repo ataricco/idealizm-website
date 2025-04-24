@@ -19,4 +19,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Manjari", serif;
+  overflow-x: hidden;
+}
+
+/* the below hides the scroll bar while keeping scroll functionality */
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
