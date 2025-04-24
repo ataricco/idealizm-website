@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import StickyNavbar from "@/components/stickyNavbar";
+import Footer from "@/components/footer";
+import { LandingPageProvider } from "@/contexts/LandingPageContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,10 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning> 
+    <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning className={`antialiased`}>
-        <StickyNavbar />
-        {children}
+        <LandingPageProvider>
+          <StickyNavbar />
+          {children}
+          <Footer />
+        </LandingPageProvider>
       </body>
     </html>
   );

@@ -1,15 +1,18 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import PillButton from "@/components/pillButton";
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const [zoom, setZoom] = useState(200);
   const [translateX, setTranslateX] = useState(75);
-  const [final, setFinal] = useState(false);
+
+  //useLandingPageFinal is a custom hook that returns the context, as a final bool and the setter
+  const { final, setFinal } = useLandingPageFinal();
 
   const handleWheel = (event: WheelEvent) => {
     // Sets the zoom level to be between 100% and 200% depending on the scroll direction
@@ -27,7 +30,7 @@ export default function Home() {
       setFinal(false);
     }
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       AOS.init({ duration: 800, once: true });
     }
 
@@ -64,7 +67,7 @@ export default function Home() {
         </PillButton>
         <PillButton colorIndex={0}>
           <p className="p-3 mt-1 text-xl font-bold">About Me</p>
-        </PillButton> 
+        </PillButton>
       </div>
       {/*gradient thing */}
       <div className="w-full bg-blend-lighten bg-gradient-to-b from-transparent to-slate-50 h-20 absolute bottom-0" />
@@ -81,26 +84,41 @@ export default function Home() {
           // className="w-96 h-96 object-cover border-4 border-slate-500 rounded-full"
         />
         <div className="text-gray-700 text-lg leading-relaxed max-w-3xl space-y-4">
-          <p className="font-extrabold text-2xl">When you viewed the image above, what did you see?</p>
-          <p>My name is <span className="font-bold">Liz Myska</span>.  Until 2008, my response to the
-          question "What do you see in this photo" would have been "I see a streetscape; there is a crosswalk
-          and a pedestrian."  This is what caught my eye. I would not necessarily have commented further.</p>
-          <p>On further examination of the image, I might have volunteered that the
-          pedestrian was a blind person who was at risk of a collision with a motor vehicle.</p>
-          <p>I, Liz Myska, am the pedestrian depicted in this photo. In 2008, I was decreed
-          to be legally blind. Horses were switched midstride. I moved from being sighted
-          to being a VIP - Visually Impaired Person. I immediately became a non-driver. No
-          longer was I viewing the world from behind the wheel. My visual perception and
-          my relationship with it changed.</p>
-          <p>Visual perception involves taking in, interpreting, and synthesizing visual
-          information about the environment and the beings that inhabit it.  I began analyzing
-          spaces, places, objects, and creatures from a different vantage point and a different
-          perspective once I became a VIP. It is that vantage point and that perspective you
-          gain and benefit from consulting and allying with me.</p>
+          <p className="font-extrabold text-2xl">
+            When you viewed the image above, what did you see?
+          </p>
+          <p>
+            My name is <span className="font-bold">Liz Myska</span>. Until 2008,
+            my response to the question "What do you see in this photo" would
+            have been "I see a streetscape; there is a crosswalk and a
+            pedestrian." This is what caught my eye. I would not necessarily
+            have commented further.
+          </p>
+          <p>
+            On further examination of the image, I might have volunteered that
+            the pedestrian was a blind person who was at risk of a collision
+            with a motor vehicle.
+          </p>
+          <p>
+            I, Liz Myska, am the pedestrian depicted in this photo. In 2008, I
+            was decreed to be legally blind. Horses were switched midstride. I
+            moved from being sighted to being a VIP - Visually Impaired Person.
+            I immediately became a non-driver. No longer was I viewing the world
+            from behind the wheel. My visual perception and my relationship with
+            it changed.
+          </p>
+          <p>
+            Visual perception involves taking in, interpreting, and synthesizing
+            visual information about the environment and the beings that inhabit
+            it. I began analyzing spaces, places, objects, and creatures from a
+            different vantage point and a different perspective once I became a
+            VIP. It is that vantage point and that perspective you gain and
+            benefit from consulting and allying with me.
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 
   const panelContent = (
     <div>
@@ -111,14 +129,15 @@ export default function Home() {
             Street Smarts - What you don't see
           </h2>
           <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-          We provide interactive workshops for sighted individuals to better understand
-          the experiences of visually impaired people, fostering a more inclusive community.
+            We provide interactive workshops for sighted individuals to better
+            understand the experiences of visually impaired people, fostering a
+            more inclusive community.
           </p>
           <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
             Learn More
           </button>
         </div>
-  
+
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <img
@@ -128,31 +147,31 @@ export default function Home() {
           />
         </div>
       </section>
-  
+
       <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
         {/* Left Image Section */}
         <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
-        <img
-        src="HuntingtonAveTraining.JPG"
-        alt=""
-        className="max-w-full shadow-lg"   /*rounded-lg*/
-        />
+          <img
+            src="HuntingtonAveTraining.JPG"
+            alt=""
+            className="max-w-full shadow-lg" /*rounded-lg*/
+          />
         </div>
         {/* Right Text Section */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2" >
+        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
             Consultation - Senses & Sensitivity
           </h2>
-        <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-          Liz will inform and educate you, your agency, your organization, and supply you
-          with her unique analysis.
-        </p>
-        <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
-          Learn More
-        </button>
+          <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+            Liz will inform and educate you, your agency, your organization, and
+            supply you with her unique analysis.
+          </p>
+          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+            Learn More
+          </button>
         </div>
       </section>
-  
+
       <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
         {/* Left Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
@@ -160,23 +179,24 @@ export default function Home() {
             Community Building - Interactive
           </h2>
           <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-            Explore the many initiatives, including WalkFit, White Cane Day, and TalkFit.
+            Explore the many initiatives, including WalkFit, White Cane Day, and
+            TalkFit.
           </p>
           <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
             Learn More
           </button>
         </div>
-  
+
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <img
             src="BusinessImprovementDistrictGroup.jpg"
             alt="Business Improvement District Group"
-            className="max-w-full shadow-lg"   /*rounded-lg*/
+            className="max-w-full shadow-lg" /*rounded-lg*/
           />
         </div>
       </section>
-  </div>
+    </div>
   );
 
   const bottomContent = (
@@ -257,7 +277,7 @@ export default function Home() {
           transition: "opacity 0.5s ease-in-out",
         }}
       >
-        <div className = "z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
+        <div className="z-10 absolute top-32 left-10 text-6xl text-foreground text-white space-y-6 bg-slate-900 bg-opacity-60 rounded-lg p-5">
           <h1>See the bigger picture</h1>
         </div>
       </div>
