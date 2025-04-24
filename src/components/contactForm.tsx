@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,11 +22,13 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const scriptURL = process.env.NEXT_PUBLIC_SCRIPT_URL; // Replace with your Web App URL
+    const scriptURL = process.env.NEXT_PUBLIC_SCRIPT_URL; // web app url (in private file)
     if (!scriptURL) {
       alert("Script URL is not defined. Please check your environment variables.");
       return;
     }
+
+    setLoading(true);
 
     try {
       const response = await fetch(scriptURL, {
@@ -48,6 +51,8 @@ const ContactForm = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("There was an error submitting your form. Please try again.");
+    } finally { //after submitted
+      setLoading(false);
     }
   };
 
@@ -144,13 +149,23 @@ const ContactForm = () => {
             />
           </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full bg-primaryYellow text-textBlue font-bold py-3 rounded-xl hover:bg-green-200 transition"
-          >
-            Submit
-          </button>
+          {/* Submit Button and spinny loading wheel while submitting*/}
+          <div className="flex flex-col items-center">
+            {loading && (
+              <div className="flex justify-center items-center mb-4">
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-500"></div> 
+              </div>
+            )}
+            <button
+              type="submit"
+              className={`w-full bg-primaryYellow text-textBlue font-bold py-3 rounded-xl transition ${
+                loading ? "opacity-50 cursor-not-allowed" : "hover:bg-green-200"
+              }`}
+              disabled={loading} // Disable the button while loading
+            >
+              {loading ? "Submitting..." : "Submit"}
+            </button>
+          </div>
         </form>
       </div>
     </div>
