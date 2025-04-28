@@ -101,10 +101,10 @@ export default function Home() {
           </p>
           <p>
             My name is <span className="font-bold">Liz Myska</span>. Until 2008,
-            my response to the question &quotWhat do you see in this photo&quot
-            would have been &quotI see a streetscape; there is a crosswalk and a
-            pedestrian.&quot This is what caught my eye. I would not necessarily
-            have commented further.
+            my response to the question &quot;What do you see in this
+            photo&quot; would have been &quot;I see a streetscape; there is a
+            crosswalk and a pedestrian.&quot; This is what caught my eye. I
+            would not necessarily have commented further.
           </p>
           <p>
             On further examination of the image, I might have volunteered that
@@ -138,7 +138,7 @@ export default function Home() {
         {/* Left Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Street Smarts - What you don&apost see
+            Street Smarts - What you don&apos;t see
           </h2>
           <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
             We provide interactive workshops for sighted individuals to better
@@ -156,7 +156,7 @@ export default function Home() {
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <img
-            src="background.JPG"
+            src="background.jpg"
             alt="Street Crossing"
             className="max-w-full shadow-lg" /*rounded-lg*/
           />
@@ -225,7 +225,7 @@ export default function Home() {
       <div
         className="z-0 flex flex-col items-center justify-center h-screen text-foreground bg-background"
         style={{
-          backgroundImage: "url('background.jpg')",
+          backgroundImage: "url('/background.jpg')",
           backgroundSize: `${zoom}%`,
           backgroundPosition: `${translateX}% center`,
           backgroundRepeat: "no-repeat",
