@@ -66,15 +66,19 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-row space-x-5 absolute bottom-20 left-1/2 transform -translate-x-1/2">
-        <PillButton 
-        colorIndex={0}
-        onClick = {() => {router.push("/contact")}}
+        <PillButton
+          colorIndex={0}
+          onClick={() => {
+            router.push("/contact");
+          }}
         >
           <p className="p-3 mt-1 text-xl font-bold">Contact Me</p>
         </PillButton>
-        <PillButton 
-        colorIndex={0}
-        onClick = {() => {router.push("/story")}}
+        <PillButton
+          colorIndex={0}
+          onClick={() => {
+            router.push("/story");
+          }}
         >
           <p className="p-3 mt-1 text-xl font-bold">About Me</p>
         </PillButton>
@@ -143,9 +147,9 @@ export default function Home() {
             understand the experiences of visually impaired people, fostering a
             more inclusive community.
           </p>
-          <button 
-          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-          onClick={() => router.push("/collaborate")}
+          <button
+            className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+            onClick={() => router.push("/collaborate")}
           >
             Learn More
           </button>
@@ -179,9 +183,9 @@ export default function Home() {
             Liz will inform and educate you, your agency, your organization, and
             supply you with her unique analysis.
           </p>
-          <button 
-          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-          onClick={() => router.push("/consult")}
+          <button
+            className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+            onClick={() => router.push("/consult")}
           >
             Learn More
           </button>
@@ -198,9 +202,9 @@ export default function Home() {
             Explore the many initiatives, including WalkFit, White Cane Day, and
             TalkFit.
           </p>
-          <button 
-          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-          onClick={() => router.push("/commingle")}
+          <button
+            className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+            onClick={() => router.push("/commingle")}
           >
             Learn More
           </button>
@@ -215,64 +219,6 @@ export default function Home() {
           />
         </div>
       </section>
-    </div>
-  );
-
-  const bottomContent = (
-    <div className="flex flex-row m-10 space-x-10 text-black">
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-    </div>
-  );
-
-  const carousel = (
-    <div className="flex flex-row m-10 text-black">
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
     </div>
   );
 

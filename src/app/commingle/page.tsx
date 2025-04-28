@@ -1,11 +1,8 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { useState } from "react";
 
 export default function Commingle() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="bg-[#f6f5f0] text-[#004459]">
       {/* Header */}
@@ -36,8 +33,7 @@ export default function Commingle() {
 
             <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0 py-4">
               Itching to get involved and rub elbows with Liz M? Consider
-              becoming an ambassador at Walkfit or
-              Talkfit.
+              becoming an ambassador at Walkfit or Talkfit.
             </p>
           </div>
         </div>
