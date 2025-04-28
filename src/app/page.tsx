@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/no-unused-vars */
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -46,7 +44,7 @@ export default function Home() {
         window.removeEventListener("wheel", handleWheel);
       };
     }
-  }, [zoom, translateX, final]);
+  }, [zoom, translateX, final, setFinal]);
 
   //stuff that appears after the user scrolls all the way down
   const invisibleContent = (
@@ -103,9 +101,9 @@ export default function Home() {
           </p>
           <p>
             My name is <span className="font-bold">Liz Myska</span>. Until 2008,
-            my response to the question "What do you see in this photo" would
-            have been "I see a streetscape; there is a crosswalk and a
-            pedestrian." This is what caught my eye. I would not necessarily
+            my response to the question &quotWhat do you see in this photo&quot
+            would have been &quotI see a streetscape; there is a crosswalk and a
+            pedestrian.&quot This is what caught my eye. I would not necessarily
             have commented further.
           </p>
           <p>
@@ -140,7 +138,7 @@ export default function Home() {
         {/* Left Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Street Smarts - What you don't see
+            Street Smarts - What you don&apost see
           </h2>
           <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
             We provide interactive workshops for sighted individuals to better
