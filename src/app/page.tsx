@@ -156,7 +156,7 @@ export default function Home() {
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <img
-            src="background.jpg"
+            src="background_img.jpg"
             alt="Street Crossing"
             className="max-w-full shadow-lg" /*rounded-lg*/
           />
@@ -225,7 +225,7 @@ export default function Home() {
       <div
         className="z-0 flex flex-col items-center justify-center h-screen text-foreground bg-background"
         style={{
-          backgroundImage: "url('/background.jpg')",
+          backgroundImage: "url('/background_img.jpg')",
           backgroundSize: `${zoom}%`,
           backgroundPosition: `${translateX}% center`,
           backgroundRepeat: "no-repeat",
