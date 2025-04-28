@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ContactForm from "@/components/contactForm";
 
 export default function Contact() {
     const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
 
     return (
         <div className="bg-[#f6f5f0] text-[#004459]">

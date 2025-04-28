@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
-import { CheckCircle, Link } from 'lucide-react'; 
+import { useState } from "react";
+import { CheckCircle } from 'lucide-react'; 
 
 export default function Collaborate() {
     const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
 
     const points = [
         "Advocacy-centered approach to accessibility",

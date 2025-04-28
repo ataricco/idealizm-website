@@ -1,10 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function WalkFit() {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);    
+    const [isOpen, setIsOpen] = useState(false);   
 
     return (
         <div className="bg-[#f6f5f0] text-[#004459]">

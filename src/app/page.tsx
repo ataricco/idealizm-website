@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/no-unused-vars */
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";

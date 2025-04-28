@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
+
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Story() {
     const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
     
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
