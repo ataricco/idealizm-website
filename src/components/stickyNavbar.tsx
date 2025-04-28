@@ -16,7 +16,7 @@ export default function StickyNavbar() {
 
         {/* icon */}
         <section className="flex justify-center flex-none">
-          <Link href="/" className="text-3xl font-bold hover:underline">
+          <Link href="/" className="text-4xl font-bold hover:underline">
             IdeaLizm
           </Link>
         </section>

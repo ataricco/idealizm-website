@@ -2,12 +2,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useLandingPageFinal } from "@/contexts/LandingPageContext";
+import { useRouter } from "next/navigation";
 import PillButton from "@/components/pillButton";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
+  const router = useRouter();
   const [zoom, setZoom] = useState(200);
   const [translateX, setTranslateX] = useState(75);
 
@@ -62,10 +64,16 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-row space-x-5 absolute bottom-20 left-1/2 transform -translate-x-1/2">
-        <PillButton colorIndex={0}>
+        <PillButton 
+        colorIndex={0}
+        onClick = {() => {router.push("/contact")}}
+        >
           <p className="p-3 mt-1 text-xl font-bold">Contact Me</p>
         </PillButton>
-        <PillButton colorIndex={0}>
+        <PillButton 
+        colorIndex={0}
+        onClick = {() => {router.push("/story")}}
+        >
           <p className="p-3 mt-1 text-xl font-bold">About Me</p>
         </PillButton>
       </div>
@@ -133,7 +141,10 @@ export default function Home() {
             understand the experiences of visually impaired people, fostering a
             more inclusive community.
           </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+          <button 
+          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+          onClick={() => router.push("/collaborate")}
+          >
             Learn More
           </button>
         </div>
@@ -166,7 +177,10 @@ export default function Home() {
             Liz will inform and educate you, your agency, your organization, and
             supply you with her unique analysis.
           </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+          <button 
+          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+          onClick={() => router.push("/consult")}
+          >
             Learn More
           </button>
         </div>
@@ -182,7 +196,10 @@ export default function Home() {
             Explore the many initiatives, including WalkFit, White Cane Day, and
             TalkFit.
           </p>
-          <button className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition">
+          <button 
+          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+          onClick={() => router.push("/commingle")}
+          >
             Learn More
           </button>
         </div>
