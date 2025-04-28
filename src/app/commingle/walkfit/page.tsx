@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
 import React from "react";
+import Image from "next/image";
 
 export default function WalkFit() {
   return (
@@ -96,10 +97,12 @@ export default function WalkFit() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <img
-            src="LizAndWalkfitPioneer.jpeg"
+          <Image
+            src="/LizAndWalkfitPioneer.jpeg"
             alt="Walkfit in Action"
             className="rounded-2xl shadow-lg object-cover w-full h-auto"
+            width={400}
+            height={300}
           />
         </div>
       </section>

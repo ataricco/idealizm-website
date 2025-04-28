@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 export default function Commingle() {
   return (
@@ -44,9 +45,11 @@ export default function Commingle() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <img
-            src="FeelingPlantstwoPeople.jpg"
+          <Image
+            src="/FeelingPlantsTwoPeople.jpg"
             alt="Two People Feeling Plants"
+            width={400}
+            height={300}
             className="rounded-2xl shadow-lg object-cover w-full h-auto"
           />
         </div>
