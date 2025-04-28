@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
 import React from "react";
-import { useState } from "react";
 
 export default function WalkFit() {
   return (
