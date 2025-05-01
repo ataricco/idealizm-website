@@ -17,7 +17,7 @@ export default function Story() {
         
         <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12 text-[#004459]">
             <p className = "text-lg lg:text-xl max-w-2xl mx-auto">
-            <Image src={"/background.jpg"} alt="Liz Myska" className="mx-auto mb-4 rounded-md" width={1000} height={800} />
+            <Image src={"/background_img.jpg"} alt="Liz Myska" className="mx-auto mb-4 rounded-md" width={1000} height={800} />
             My name is Liz Myska. I am the Liz M of IDEALIZM.   
             <br /> <br />
             Here is my sighted response to the question “what do you see in this photo?" 
