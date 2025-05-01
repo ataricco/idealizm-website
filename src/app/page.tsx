@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/no-unused-vars */
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -46,7 +44,7 @@ export default function Home() {
         window.removeEventListener("wheel", handleWheel);
       };
     }
-  }, [zoom, translateX, final]);
+  }, [zoom, translateX, final, setFinal]);
 
   //stuff that appears after the user scrolls all the way down
   const invisibleContent = (
@@ -66,15 +64,19 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-row space-x-5 absolute bottom-20 left-1/2 transform -translate-x-1/2">
-        <PillButton 
-        colorIndex={0}
-        onClick = {() => {router.push("/contact")}}
+        <PillButton
+          colorIndex={0}
+          onClick={() => {
+            router.push("/contact");
+          }}
         >
           <p className="p-3 mt-1 text-xl font-bold">Contact Me</p>
         </PillButton>
-        <PillButton 
-        colorIndex={0}
-        onClick = {() => {router.push("/story")}}
+        <PillButton
+          colorIndex={0}
+          onClick={() => {
+            router.push("/story");
+          }}
         >
           <p className="p-3 mt-1 text-xl font-bold">About Me</p>
         </PillButton>
@@ -99,10 +101,10 @@ export default function Home() {
           </p>
           <p>
             My name is <span className="font-bold">Liz Myska</span>. Until 2008,
-            my response to the question "What do you see in this photo" would
-            have been "I see a streetscape; there is a crosswalk and a
-            pedestrian." This is what caught my eye. I would not necessarily
-            have commented further.
+            my response to the question &quot;What do you see in this
+            photo&quot; would have been &quot;I see a streetscape; there is a
+            crosswalk and a pedestrian.&quot; This is what caught my eye. I
+            would not necessarily have commented further.
           </p>
           <p>
             On further examination of the image, I might have volunteered that
@@ -136,16 +138,16 @@ export default function Home() {
         {/* Left Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Street Smarts - What you don't see
+            Street Smarts - What you don&apos;t see
           </h2>
           <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
             We provide interactive workshops for sighted individuals to better
             understand the experiences of visually impaired people, fostering a
             more inclusive community.
           </p>
-          <button 
-          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-          onClick={() => router.push("/collaborate")}
+          <button
+            className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+            onClick={() => router.push("/collaborate")}
           >
             Learn More
           </button>
@@ -154,7 +156,7 @@ export default function Home() {
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <img
-            src="background.JPG"
+            src="background_img.jpg"
             alt="Street Crossing"
             className="max-w-full shadow-lg" /*rounded-lg*/
           />
@@ -179,9 +181,9 @@ export default function Home() {
             Liz will inform and educate you, your agency, your organization, and
             supply you with her unique analysis.
           </p>
-          <button 
-          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-          onClick={() => router.push("/consult")}
+          <button
+            className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+            onClick={() => router.push("/consult")}
           >
             Learn More
           </button>
@@ -198,9 +200,9 @@ export default function Home() {
             Explore the many initiatives, including WalkFit, White Cane Day, and
             TalkFit.
           </p>
-          <button 
-          className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-          onClick={() => router.push("/commingle")}
+          <button
+            className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
+            onClick={() => router.push("/commingle")}
           >
             Learn More
           </button>
@@ -218,70 +220,12 @@ export default function Home() {
     </div>
   );
 
-  const bottomContent = (
-    <div className="flex flex-row m-10 space-x-10 text-black">
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-    </div>
-  );
-
-  const carousel = (
-    <div className="flex flex-row m-10 text-black">
-      <div>
-        <h1 className="text-4xl text-center pb-1">Lorem Ipsum</h1>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
-        </p>
-      </div>
-    </div>
-  );
-
   return (
     <>
       <div
         className="z-0 flex flex-col items-center justify-center h-screen text-foreground bg-background"
         style={{
-          backgroundImage: "url('/background.jpg')",
+          backgroundImage: "url('/background_img.jpg')",
           backgroundSize: `${zoom}%`,
           backgroundPosition: `${translateX}% center`,
           backgroundRepeat: "no-repeat",

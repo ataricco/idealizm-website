@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-vars */
 import React, { useState } from "react";
 
 const ContactForm = () => {
@@ -11,9 +10,12 @@ const ContactForm = () => {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type } = e.target;
-    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
+    const checked =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
@@ -25,14 +27,16 @@ const ContactForm = () => {
 
     const scriptURL = process.env.NEXT_PUBLIC_SCRIPT_URL; // web app url (in private file)
     if (!scriptURL) {
-      alert("Script URL is not defined. Please check your environment variables.");
+      alert(
+        "Script URL is not defined. Please check your environment variables."
+      );
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch(scriptURL, {
+      await fetch(scriptURL, {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -52,7 +56,8 @@ const ContactForm = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("There was an error submitting your form. Please try again.");
-    } finally { //after submitted
+    } finally {
+      //after submitted
       setLoading(false);
     }
   };
@@ -61,16 +66,20 @@ const ContactForm = () => {
     <div className="max-w-4xl mx-auto p-6 flex flex-col gap-8 rounded-xl">
       {/* Intro Section */}
       <div className="{bg-primaryYellow p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold mb-4 text-textBlue-800">Regardless of the ask, iteration or initiative, Liz M
-        and the services she offers are distinctive, unpatrolled, and invaluable.</h2>
+        <h2 className="text-xl font-bold mb-4 text-textBlue-800">
+          Regardless of the ask, iteration or initiative, Liz M and the services
+          she offers are distinctive, unpatrolled, and invaluable.
+        </h2>
         <p className="text-textBlue-700 mb-4">
-        Liaison with Liz to dialogue, discuss, determine, and decide.
+          Liaison with Liz to dialogue, discuss, determine, and decide.
         </p>
       </div>
 
       {/* Form Section */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <h3 className="text-lg font-bold mb-6 text-graytext-textBlue800">Contact Plan Consulting</h3>
+        <h3 className="text-lg font-bold mb-6 text-graytext-textBlue800">
+          Contact Plan Consulting
+        </h3>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* First Name */}
           <div>
@@ -154,7 +163,7 @@ const ContactForm = () => {
           <div className="flex flex-col items-center">
             {loading && (
               <div className="flex justify-center items-center mb-4">
-                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-500"></div> 
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-500"></div>
               </div>
             )}
             <button
