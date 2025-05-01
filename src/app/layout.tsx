@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import StickyNavbar from "@/components/stickyNavbar";
-import Footer from "@/components/footer";
+import FooterWrapper from "@/components/footerWrapper";
 import { LandingPageProvider } from "@/contexts/LandingPageContext";
 import "./globals.css";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
         <LandingPageProvider>
           <StickyNavbar />
           {children}
-          <Footer />
+          <FooterWrapper />
         </LandingPageProvider>
       </body>
     </html>

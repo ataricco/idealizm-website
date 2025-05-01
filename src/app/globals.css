@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f8fafc;
+    --background: #1f2937;
     --foreground: #ffffff;
   }
 }
@@ -23,7 +23,7 @@ body {
 }
 
 /* the below hides the scroll bar while keeping scroll functionality */
-*{
+* {
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
