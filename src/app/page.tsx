@@ -106,7 +106,7 @@ export default function Home() {
           <p>
             My name is <span className="font-bold">Liz Myska</span>. Until 2008,
             my response to the question &quot;What do you see in this
-            photo&quot; would have been &quot;I see a streetscape; there is a
+            photo?&quot; would have been &quot;I see a streetscape; there is a
             crosswalk and a pedestrian.&quot; This is what caught my eye. I
             would not necessarily have commented further.
           </p>
