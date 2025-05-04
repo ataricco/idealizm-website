@@ -138,7 +138,7 @@ export default function Home() {
 
   const panelContent = (
     <div>
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+      <section className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#f6f5f0]">
         {/* Left Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
@@ -160,14 +160,14 @@ export default function Home() {
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
           <img
-            src="background_img.jpg"
+            src="LizStreetCrossing.jpg"
             alt="Street Crossing"
             className="max-w-full shadow-lg" /*rounded-lg*/
           />
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+      <section className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#f6f5f0]">
         {/* Left Image Section */}
         <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
           <img
@@ -194,7 +194,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row items-center justify-between bg-[#f6f5f0]">
+      <section className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#f6f5f0]">
         {/* Left Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
@@ -229,7 +229,7 @@ export default function Home() {
       <div
         className="z-0 flex flex-col items-center justify-center h-screen text-foreground bg-background"
         style={{
-          backgroundImage: "url('/background_img.jpg')",
+          backgroundImage: "url('/LizStreetCrossing.jpg')",
           backgroundSize: `${zoom}%`,
           backgroundPosition: `${translateX}% center`,
           backgroundRepeat: "no-repeat",

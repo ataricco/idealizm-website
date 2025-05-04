@@ -17,24 +17,6 @@ export default function WalkFit() {
         </p>
       </header>
 
-      {/* Video */}
-      <section className="py-12 px-6">
-        <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
-          <div
-            className="w-full"
-            style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}
-          >
-            <iframe
-              src="https://www.youtube.com/embed/nR8i8WTRJS8"
-              title="Liz on CNN's United Shades of America"
-              className="absolute top-0 left-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
       {/* Text and Image */}
       <section className="flex flex-col lg:flex-row gap-8 px-6 lg:px-24 py-16 items-start">
         {/* Text */}
