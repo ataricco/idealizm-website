@@ -12,8 +12,12 @@ npm install next@latest react@latest react-dom@latest
 npm uninstall react react-dom
 npm install react@19.0.1 react-dom@19.0.1
 ```
-
 which installs next and the general react environment (https://nextjs.org/docs/app/getting-started/installation).
+
+Next install the carousel
+```
+npm install react-multi-carousel
+```
 
 then clone the repo and run 
 
