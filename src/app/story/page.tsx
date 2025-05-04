@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
 import React from "react";
-import Image from "next/image";
 
 export default function Story() {
   return (
