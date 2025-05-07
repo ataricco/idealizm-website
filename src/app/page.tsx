@@ -5,7 +5,7 @@ import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import { useRouter } from "next/navigation";
 import PillButton from "@/components/pillButton";
 
-//import AOS from "aos";
+import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
@@ -32,9 +32,10 @@ export default function Home() {
       setFinal(false);
     }
 
-    // if (typeof window !== "undefined") {
-    //   AOS.init({ duration: 800, once: true });
-    // }
+    // On Arc there is a lag to the homepage scroll when AOS is initialized
+    if (typeof window !== "undefined") {
+       AOS.init({ duration: 800, once: true });
+    }
 
     if (!final) {
       window.addEventListener("wheel", handleWheel);
