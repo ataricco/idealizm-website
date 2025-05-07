@@ -5,7 +5,7 @@ import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import { useRouter } from "next/navigation";
 import PillButton from "@/components/pillButton";
 
-import AOS from "aos";
+//import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
@@ -32,9 +32,9 @@ export default function Home() {
       setFinal(false);
     }
 
-    if (typeof window !== "undefined") {
-      AOS.init({ duration: 800, once: true });
-    }
+    // if (typeof window !== "undefined") {
+    //   AOS.init({ duration: 800, once: true });
+    // }
 
     if (!final) {
       window.addEventListener("wheel", handleWheel);
@@ -89,16 +89,15 @@ export default function Home() {
   const profileContent = (
     <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="flex flex-col lg:flex-row items-center gap-12 p-12 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
-        
         {/* Vertical elliptical container with responsive width */}
         <div className="w-full sm:w-96 md:w-auto max-w-sm aspect-[3/4] overflow-hidden rounded-full">
           <img
-          src="LizMyskaProfile.jpeg"
-          alt="Profile Picture of Liz Myska"
-          className="w-full h-full object-cover"
+            src="LizMyskaProfile.jpeg"
+            alt="Profile Picture of Liz Myska"
+            className="w-full h-full object-cover"
           />
         </div>
-        
+
         <div className="text-gray-700 text-lg leading-relaxed max-w-3xl space-y-4">
           <p className="font-extrabold text-2xl">
             When you viewed the image above, what did you see?
