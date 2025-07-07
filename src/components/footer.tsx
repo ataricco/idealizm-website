@@ -2,9 +2,14 @@ import React from "react";
 import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { usePathname } from 'next/navigation'; 
 
 export default function Footer({ deviceType }: { deviceType: string }) {
   const { final } = useLandingPageFinal();
+  const pathname = usePathname();
+
+  // Don't show footer on the homepage
+  if (pathname === '/') return null;
 
   const responsive = {
     desktop: {
@@ -28,9 +33,6 @@ export default function Footer({ deviceType }: { deviceType: string }) {
     final && (
       <footer className="bg-gray-800 text-white py-4">
         <div className="container mx-auto text-center">
-          <p className="text-sm">
-            &copy; {new Date().getFullYear()} Idealizm. All rights reserved.
-          </p>
           <Carousel
             swipeable={true}
             draggable={true}
@@ -81,6 +83,9 @@ export default function Footer({ deviceType }: { deviceType: string }) {
               <p className="font-bold">— Priya T., Volunteer</p>
             </div>
           </Carousel>
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} IdeaLizm. All rights reserved.
+          </p>
         </div>
       </footer>
     )

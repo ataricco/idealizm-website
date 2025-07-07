@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 
 export default function WalkFit() {
+
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   return (
     <div className="bg-[#f6f5f0] text-[#004459]">
       {/* Header */}
@@ -21,9 +25,9 @@ export default function WalkFit() {
       <section className="flex flex-col lg:flex-row gap-8 px-6 lg:px-24 py-16 items-start">
         {/* Text */}
         <div
-          className="flex-1 space-y-6 text-lg leading-relaxed"
-          data-aos="fade-up"
-        >
+          className="flex-1 space-y-6 text-lg leading-relaxed order-2 lg:order-1"
+          data-aos="fade-up">
+
           <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12">
             <h2 className="text-2xl font-bold text-[#004459] mb-4">
               What is Walkfit?
@@ -34,7 +38,7 @@ export default function WalkFit() {
               pairs a person who is sighted with a person who is non-sighted and
               just like it sounds, "we walk." But that is not all. Walkfit is
               much more than that. Walkfit is a way to experience the world
-              differently. It's about community, connection, and changing
+              differently. It&apos;s about community, connection, and changing
               perspectives.
             </p>
           </div>
@@ -63,8 +67,8 @@ export default function WalkFit() {
             </h2>
             <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
               If you or anyone you know is interested in Walkfit, reach out to
-              VIP Liz by email at{" "}
-              <a href="mailto:lizmyska@gmail.com?subject=Walkfit Sign-Up&body=Hi Liz, I'm interested in joining Walkfit.">
+              VIP Liz M by email at{" "}
+              <a className="underline" href="mailto:lizmyska@gmail.com?subject=Walkfit Sign-Up&body=Hi Liz M, I'm interested in joining Walkfit.">
                 lizmyska@gmail.com
               </a>
               . Be sure to identify yourself and your interest in Walkfit in the
@@ -75,20 +79,32 @@ export default function WalkFit() {
 
         {/* Image */}
         <div
-          className="flex-shrink-0 w-full lg:w-[400px]"
+          className="flex-shrink-0 w-full lg:w-[400px] cursor-pointer order-1 lg:order-2"
           data-aos="fade-up"
           data-aos-delay="200"
+          onClick={() => setIsVideoPlaying(true)}
         >
-          <Image
-            src="/LizAndWalkfitPioneer.jpeg"
-            alt="Walkfit in Action"
-            className="rounded-2xl shadow-lg object-cover w-full h-auto"
-            width={400}
-            height={300}
-          />
+          {!isVideoPlaying ? (
+            <Image
+              src="/LizAndWalkfitPioneer.jpeg"
+              alt="Walkfit in Action"
+              className="rounded-2xl shadow-lg object-cover w-full h-auto"
+              width={400}
+              height={300}
+            />
+          ) : (
+            <video
+              className="rounded-2xl shadow-lg object-cover w-full h-auto"
+              controls
+              autoPlay
+            >
+            <source src="/HansMeetingLiz.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+            </video>
+          )}
         </div>
       </section>
-
+    
       {/* Google Calendar */}
       <section className="py-12 px-6 bg-white" data-aos="fade-up">
         <h2 className="text-3xl font-bold text-center text-[#004459] mb-6">

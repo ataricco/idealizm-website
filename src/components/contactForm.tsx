@@ -5,8 +5,9 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
     companyName: "",
+    email: "",
+    phoneNumber: "",
     message: "",
   });
 
@@ -49,8 +50,9 @@ const ContactForm = () => {
       setFormData({
         firstName: "",
         lastName: "",
-        email: "",
         companyName: "",
+        email: "",
+        phoneNumber: "",
         message: "",
       });
     } catch (error) {
@@ -64,27 +66,17 @@ const ContactForm = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 flex flex-col gap-8 rounded-xl">
-      {/* Intro Section */}
-      <div className="{bg-primaryYellow p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold mb-4 text-textBlue-800">
-          Regardless of the ask, iteration or initiative, Liz M and the services
-          she offers are distinctive, unpatrolled, and invaluable.
-        </h2>
-        <p className="text-textBlue-700 mb-4">
-          Liaison with Liz to dialogue, discuss, determine, and decide.
-        </p>
-      </div>
-
+      
       {/* Form Section */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-md">
         <h3 className="text-lg font-bold mb-6 text-graytext-textBlue800">
-          Contact Plan Consulting
+          Please complete all required fields, indicated with a *, so we can best respond to your inquiry.
         </h3>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* First Name */}
           <div>
             <label htmlFor="firstName" className="block font-bold mb-2">
-              First Name
+              First Name*
             </label>
             <input
               type="text"
@@ -100,29 +92,13 @@ const ContactForm = () => {
           {/* Last Name */}
           <div>
             <label htmlFor="lastName" className="block font-bold mb-2">
-              Last Name
+              Last Name*
             </label>
             <input
               type="text"
               id="lastName"
               name="lastName"
               value={formData.lastName}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-lg"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label htmlFor="email" className="block font-bold mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
               onChange={handleChange}
               required
               className="w-full p-3 border border-gray-300 rounded-lg"
@@ -144,10 +120,42 @@ const ContactForm = () => {
             />
           </div>
 
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block font-bold mb-2">
+              Email*
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-3 border border-gray-300 rounded-lg"
+            />
+          </div>
+
+          {/* Phone Number*/}
+          <div>
+            <label htmlFor="phoneNumber" className="block font-bold mb-2">
+              Phone Number*
+            </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              required
+              className="w-full p-3 border border-gray-300 rounded-lg"
+            />
+          </div>
+
           {/* Message */}
           <div>
             <label htmlFor="message" className="block font-bold mb-2">
-              Message
+              Message*
             </label>
             <textarea
               id="message"

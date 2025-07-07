@@ -8,7 +8,7 @@ export default function Commingle() {
     <div className="bg-[#f6f5f0] text-[#004459]">
       {/* Header */}
       <header className="pt-40 text-center py-16 px-6 bg-amber-100 shadow-md">
-        <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">Commingle</h1>
+        <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">Ready to Get Involved?</h1>
         <p className="text-lg lg:text-xl max-w-2xl mx-auto">
           Be inspired by initiatives rooted in community, accessibility, and
           advocacy, and turn shared vision into collective action.
@@ -19,29 +19,31 @@ export default function Commingle() {
       <section className="flex flex-col lg:flex-row gap-8 px-6 lg:px-24 py-16 items-start">
         {/* Text */}
         <div
-          className="flex-1 space-y-6 text-lg leading-relaxed"
+          className="flex-1 space-y-6 text-lg leading-relaxed order-2 lg:order-1"
           data-aos="fade-up"
         >
           <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12">
             <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0 py-4">
-              Liz cultivates social connections and champions community
-              building. Whether it be to bring awareness, advocate, teach and
-              tutor to foster understanding and sideline myths and stereotypes,
-              Liz seeks allies and alliances. Liz spotlights people, places and
-              causes that would otherwise go unnoticed or be overlooked on her
-              WCCA TV program Connecting the Dots.
+              There are many meaningful opportunities to connect, learn, and grow by joining 
+              existing initiatives designed to foster inclusion and support. Instead of starting 
+              something new, the focus is on coming alongside established programs where you can 
+              experience firsthand the power of community and collaboration.
             </p>
-
             <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0 py-4">
-              Itching to get involved and rub elbows with Liz M? Consider
-              becoming an ambassador at Walkfit or Talkfit.
+              These programs offer a chance to engage with individuals of diverse abilities, share experiences, 
+              and build lasting relationships. By participating, you become part of a vibrant network that values 
+              every voice. Explore the opportunities available, join in, and help create a culture of understanding 
+              and inclusion that benefits everyone.
+            </p>
+            <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0 py-4">
+              Select a card below for more details about our current initiatives.
             </p>
           </div>
         </div>
 
         {/* Image */}
         <div
-          className="flex-shrink-0 w-full lg:w-[400px]"
+          className="flex-shrink-0 w-full lg:w-[400px] order-1 lg:order-2"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -57,9 +59,6 @@ export default function Commingle() {
 
       {/* Initiative Cards */}
       <section className="px-6 lg:px-24 py-16">
-        <h2 className="text-3xl font-bold text-center mb-10">
-          Explore Initiatives
-        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
@@ -69,39 +68,19 @@ export default function Commingle() {
             },
             {
               title: "Talkfit",
-              desc: "Interactive workshops promoting accessibility and awareness.",
+              desc: "A virtual gathering that keeps the community connected.",
               link: "/talkfit",
             },
             {
-              title: "White Cane Day",
-              desc: "Description of White Cane Day",
-              link: "/cane",
-            },
-            {
-              title: "Vision Advocacy",
-              desc: "Empowering voices to influence inclusive policy and spaces.",
-              link: "/vision",
-            },
-            {
-              title: "Tech for Inclusion",
-              desc: "Exploring assistive technology that enhances daily life.",
-              link: "/tech",
-            },
-            {
-              title: "Youth Voices",
+              title: (
+                <>
+                Youth Voices – <em>Coming Soon</em>
+                </>
+                ),
               desc: "Programs supporting advocacy and inclusion for young people.",
-              link: "/youth",
+              link: "",
             },
-            {
-              title: "People Health Communication",
-              desc: "Add a description here.",
-              link: "/health",
-            },
-            {
-              title: "Community Spotlights",
-              desc: "Highlighting efforts that promote access and equality locally.",
-              link: "/community",
-            },
+           
           ].map((item, index) => (
             <Link href={`/commingle/${item.link}`} key={index}>
               <div

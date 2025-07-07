@@ -5,9 +5,6 @@ import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import { useRouter } from "next/navigation";
 import PillButton from "@/components/pillButton";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 export default function Home() {
   const router = useRouter();
   const [zoom, setZoom] = useState(200);
@@ -30,11 +27,6 @@ export default function Home() {
       setFinal(true);
     } else {
       setFinal(false);
-    }
-
-    // On Arc there is a lag to the homepage scroll when AOS is initialized
-    if (typeof window !== "undefined") {
-       AOS.init({ duration: 800, once: true });
     }
 
     if (!final) {
@@ -101,39 +93,50 @@ export default function Home() {
 
         <div className="text-gray-700 text-lg leading-relaxed max-w-3xl space-y-4">
           <p className="font-extrabold text-2xl">
-            When you viewed the image above, what did you see?
+            When you viewed the picture shown above, what did you see?
           </p>
           <p>
-            My name is <span className="font-bold">Liz Myska</span>. Until 2008,
-            my response to the question &quot;What do you see in this
-            photo?&quot; would have been &quot;I see a streetscape; there is a
-            crosswalk and a pedestrian.&quot; This is what caught my eye. I
-            would not necessarily have commented further.
+            My name is <span className="font-bold">Liz Myska</span>.  I am the Liz M of IdeaLizm.
+            Here is my sighted answer to the question above:  &quot;I see a streetscape.  There is a crosswalk and a pedestrian.&quot;
+            This is what first met my eye.  I would not necessarily have commented further unless prodded to do so.
           </p>
           <p>
-            On further examination of the image, I might have volunteered that
-            the pedestrian was a blind person who was at risk of a collision
-            with a motor vehicle.
+            If prompted to examine the picture in more detail, I might have volunteered that the pedestrian
+            was a blind person who was at risk of a collision with a motor vehicle.  How did I know it was a 
+            blind person in the picture?  The white cane that the pedestrian was holding identified her as a blind person.  
+            I might have commented further that the motor vehicle looks poised to turn into the path of the unsuspecting walker. 
+            I might have registered concern for the blind person&apos;s safety.  Was she aware of the danger? 
           </p>
           <p>
-            I, Liz Myska, am the pedestrian depicted in this photo. In 2008, I
-            was decreed to be legally blind. Horses were switched midstride. I
-            moved from being sighted to being a VIP - Visually Impaired Person.
-            I immediately became a non-driver. No longer was I viewing the world
-            from behind the wheel. My visual perception and my relationship with
-            it changed.
+            I have just described what a sighted person might perceive and identify in this photo.  I can no longer
+            see pictures.  Why?  Because I am now blind.  In fact, I am the blind person depicted in the picture.  I now
+            see places, spaces, and situations differently.  Everything changed for me in 2008 when I was deemed legally 
+            blind.  Since then I learned and continue to learn about blindness and &quot;how to be blind.&quot;
           </p>
           <p>
-            Visual perception involves taking in, interpreting, and synthesizing
-            visual information about the environment and the beings that inhabit
-            it. I began analyzing spaces, places, objects, and creatures from a
-            different vantage point and a different perspective once I became a
-            VIP. It is that vantage point and that perspective you gain and
-            benefit from consulting and allying with me.
+            I am eager to share my lived experiences, my findings, and my analysis with you.  Why?  Because it benefits 
+            us both.  How?  That depends on YOU.
+          </p>
+          <p>
+            Let&apos;s <strong>Consult</strong>, <strong>Collaborate</strong>, and <strong>Commingle</strong>.
           </p>
         </div>
       </div>
     </div>
+  );
+
+  const footerContent = (
+    <footer className="bg-gray-800 text-white py-4">
+      <div className="text-center text-6xl text-foreground text-white space-y-6 bg-gray-800 p-12">
+        <h1 className="underline underline-offset-[20px]">Liz Myska</h1>
+        <div className="space-y-2">
+          <h2 className="text-3xl">Accessibility Analyst</h2>
+        </div>
+        </div>
+        <p className="text-center text-sm">
+          &copy; {new Date().getFullYear()} IdeaLizm. All rights reserved.
+        </p>
+    </footer>
   );
 
   const panelContent = (
@@ -151,7 +154,7 @@ export default function Home() {
           </p>
           <button
             className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-            onClick={() => router.push("/collaborate")}
+            onClick={() => router.push("/consult")}
           >
             Learn More
           </button>
@@ -179,15 +182,15 @@ export default function Home() {
         {/* Right Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2">
           <h2 className="text-4xl font-bold text-[#004459] mb-4">
-            Consultation - Senses & Sensitivity
+            Collaborate - Senses & Sensitivity
           </h2>
           <p className="text-[#004459] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-            Liz will inform and educate you, your agency, your organization, and
+            Liz M will inform and educate you, your agency, your organization, and
             supply you with her unique analysis.
           </p>
           <button
             className="mt-6 px-6 py-3 rounded-full bg-[#f6b846] text-white font-semibold shadow hover:bg-[#f4a931] transition"
-            onClick={() => router.push("/consult")}
+            onClick={() => router.push("/collaborate")}
           >
             Learn More
           </button>
@@ -257,9 +260,10 @@ export default function Home() {
           />
         </div>
       )}
-      {invisibleContent}
+      {/*invisibleContent*/}
       {final && profileContent}
       {final && panelContent}
+      {final && footerContent}
     </>
   );
 }
