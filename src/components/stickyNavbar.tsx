@@ -1,5 +1,4 @@
 "use client";  // ensure this is a client component
-
 import Link from "next/link";
 
 import { useState } from 'react';
@@ -28,7 +27,7 @@ export default function StickyNavbar() {
         
         {/* Left Item */}
         <div className="text-4xl font-bold">
-          <a href="/" className="hover:text-gray-300">IdeaLizm</a>
+          <Link href="/" className="hover:text-gray-300">IdeaLizm</Link>
         </div>
 
         {/* Hamburger Button for Mobile */}
