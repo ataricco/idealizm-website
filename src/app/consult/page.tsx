@@ -93,7 +93,7 @@ export default function Consult() {
           {/* Row 2 */}
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/4">
-              <img src="UmassChanCampus.webp" alt="Dermatology Clinic" className="w-full h-auto rounded" />
+              <img src="UMassChanCampus.webp" alt="Dermatology Clinic" className="w-full h-auto rounded" />
             </div>
             <div className="w-full md:w-3/4 md:pl-8 mt-4 md:mt-0">
               <h3 className="text-xl font-semibold mb-2">WHAT WE DON&apos;T SEE - Experience a Medical Visit Through the Eyes of a VIP</h3>
