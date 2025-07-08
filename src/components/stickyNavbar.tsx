@@ -23,16 +23,16 @@ export default function StickyNavbar() {
   return (
 
     <nav className="fixed top-0 left-0 z-50 w-full bg-slate-900 bg-opacity-80 text-white md:px-8 py-4 duration-300 transform transition-all ease-in-out shadow-lg shadow-slate-900 hover:shadow-slate-900/50">
-      <div className="w-full flex justify-between items-center md:px-8 py-2">
+      <div className="w-full flex justify-between items-center px-4 md:px-8 py-2">
         
         {/* Left Item */}
-        <div className="text-4xl font-bold">
+        <div className="text-4xl font-bold pl-2 md:pl-0">
           <Link href="/" className="hover:text-gray-300">IdeaLizm</Link>
         </div>
 
         {/* Hamburger Button for Mobile */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white pr-2 md:pr-0 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           ☰

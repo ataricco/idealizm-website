@@ -1,28 +1,30 @@
 "use client";
-import React from "react";
-import { useState, useEffect } from "react";
-import { useLandingPageFinal } from "@/contexts/LandingPageContext";
+
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 
 export default function Home() {
   const router = useRouter();
   const [zoom, setZoom] = useState(200);
   const [translateX, setTranslateX] = useState(75);
-
-  //useLandingPageFinal is a custom hook that returns the context, as a final bool and the setter
   const { final, setFinal } = useLandingPageFinal();
+  const animationFrameRef = useRef<number | null>(null);
+
+  const smoothUpdate = (newZoom: number, newTranslateX: number) => {
+    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+    animationFrameRef.current = requestAnimationFrame(() => {
+      setZoom(Math.max(100, Math.min(200, newZoom)));
+      setTranslateX(Math.max(50, Math.min(75, newTranslateX)));
+    });
+  };
 
   const handleWheel = (event: WheelEvent) => {
-    // Sets the zoom level to be between 100% and 200% depending on the scroll direction
-    // Sets the translate level to be between 0% and 75% depending on the scroll direction
-    setZoom((prev) => Math.max(100, Math.min(200, prev - event.deltaY * 0.05)));
-    setTranslateX((prev) =>
-      Math.max(50, Math.min(75, prev - event.deltaY * 0.02))
-    );
+    smoothUpdate(zoom - event.deltaY * 0.05, translateX - event.deltaY * 0.02);
   };
 
   useEffect(() => {
-    if (zoom == 100 && translateX == 50) {
+    if (zoom === 100 && translateX === 50) {
       setFinal(true);
     } else {
       setFinal(false);
@@ -30,8 +32,6 @@ export default function Home() {
 
     if (!final) {
       window.addEventListener("wheel", handleWheel);
-      console.log(zoom, translateX);
-
       return () => {
         window.removeEventListener("wheel", handleWheel);
       };
@@ -195,8 +195,7 @@ export default function Home() {
           backgroundSize: `${zoom}%`,
           backgroundPosition: `${translateX}% center`,
           backgroundRepeat: "no-repeat",
-          transition:
-            "background-size 0.01s ease-in-out, background-position 0.01s ease-in-out",
+          transition: "background-size 0.3s ease, background-position 0.3s ease",
         }}
       />
       <div
@@ -212,14 +211,9 @@ export default function Home() {
       </div>
       {!final && (
         <div className="z-10 absolute w-28 h-28 bottom-10 text-foreground text-white animate-bounce left-1/2">
-          <img
-            className="w-full h-full object-contain transform -translate-x-1/2"
-            src="down.svg"
-            alt="down arrow"
-          />
+          <img className="w-full h-full object-contain transform -translate-x-1/2" src="down.svg" alt="down arrow" />
         </div>
       )}
-      {/*invisibleContent*/}
       {final && profileContent}
       {final && panelContent}
       {final && footerContent}
