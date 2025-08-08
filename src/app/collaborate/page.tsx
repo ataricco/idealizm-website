@@ -1,15 +1,10 @@
 "use client";
+
+import Link from "next/link";
 import React from "react";
-import { CheckCircle } from "lucide-react";
 
 export default function Collaborate() {
-  const points = [
-    "Advocacy-centered approach to accessibility",
-    "Community-led and impact-driven programs",
-    "Customized guidance for diverse audiences",
-    "Empowering people through practical tools and training",
-  ];
-
+  
   return (
     <div className="bg-[#f6f5f0] text-[#004459]">
       {/* Header */}
@@ -172,22 +167,71 @@ export default function Collaborate() {
         </div>
       </section>
 
-      <div className="max-w-3xl mx-auto py-12 px-6 text-center"
-           data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-[#004459] mb-6 text-center">
-          Our Approach in Action
-        </h2>
-        <ul className="space-y-4">
-          {points.map((point, idx) => (
-            <li key={idx} className="flex items-start gap-4">
-              <CheckCircle className="text-amber-500 w-6 h-6 mt-1" />
-              <span className="text-lg text-[#004459] leading-relaxed">
-                {point}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* ReiMAgine Aging - Moving Forward */}
+      <section className="gap-8 px-6 lg:px-24 py-16 items-start"
+        data-aos="fade-up">
+
+        <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12">
+          <h2 className="text-3xl font-bold text-center text-[#004459] mb-6">
+            Moving Forward
+          </h2>
+          
+          <div className="flex flex-col lg:flex-row items-start gap-12">
+            {/* Left: Paragraph */}
+            <div className="flex-1 space-y-6">
+              <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
+                The audio series <span className="italic">ReiMAgine Aging</span> explores innovations that help 
+                older adults thrive in Massachusetts by promoting age- and dementia-friendly communities. Robin
+                Lipson, the Deputy Secretary of the Executive Office of Elder Affairs, narrates the challenges 
+                adults face with transportation and mobility, highlighting the need for community engagement to 
+                improve public transit for aging populations.
+              </p>
+
+              <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
+                This episode features VIP Liz M, who adapted to vision loss by moving closer to essential services
+                and engaging with Worcester&apos;s Accessibility Advisory Commission. Liz M partnered with an optometry 
+                student to create &nbsp;
+                <Link href="/commingle/walkfit" className="hover:text-amber-600"><strong>&quot;Walkfit,&quot;</strong></Link>&nbsp;
+                a program partnering sighted individuals with visually impaired persons, fostering mutual learning 
+                and relationship-building. Through practical examples like navigating busy crosswalks, Liz M 
+                emphasizes that accessible infrastructure benefits everyone and advocates for slower traffic 
+                to improve pedestrian safety and independence.
+              </p>
+            
+              <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
+                Listen to the audio player to hear the segment featuring Liz M, or click{" "}
+                <a
+                  href="https://mahealthyagingcollaborative.org/reimagine-aging/forward-movement/"
+                  target="_blank"
+                  className="text-amber-600 hover:text-amber-800 underline transition">
+                  here
+                </a>{" "}
+                for the full episode of {" "}
+                <span className="italic">Moving Forward</span>.
+              </p>
+            </div>
+
+            {/* Right: Image + Audio */}
+            <div className="max-w-md mx-auto p-4">
+              <img
+                src="/MovingForwardTransportation.jpg"
+                alt="ReiMAgine Aging - Moving Forward"
+                className="w-full object-cover rounded-t-lg"
+                style={{ marginBottom: 0 }}
+              />
+
+              <audio
+                controls
+                className="w-full rounded-b-lg"
+                src="/ReImagineAging-20230921-liz.mp3"
+                style={{ display: "block" }}
+              >
+              Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

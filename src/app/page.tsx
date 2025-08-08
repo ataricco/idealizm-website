@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { CheckCircle } from "lucide-react";
+
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useLandingPageFinal } from "@/contexts/LandingPageContext";
@@ -19,11 +22,26 @@ export default function Home() {
     });
   };
 
-  const handleWheel = (event: WheelEvent) => {
-    smoothUpdate(zoom - event.deltaY * 0.05, translateX - event.deltaY * 0.02);
-  };
-
   useEffect(() => {
+    let startY = 0;
+
+    const handleWheel = (event: WheelEvent) => {
+      smoothUpdate(zoom - event.deltaY * 0.05, translateX - event.deltaY * 0.02);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const currentY = e.touches[0].clientY;
+      const deltaY = startY - currentY;
+      startY = currentY;
+
+      // Simulate scroll delta for smooth zooming on mobile
+      smoothUpdate(zoom - deltaY * 0.1, translateX - deltaY * 0.04);
+    };
+
     if (zoom === 100 && translateX === 50) {
       setFinal(true);
     } else {
@@ -32,26 +50,31 @@ export default function Home() {
 
     if (!final) {
       window.addEventListener("wheel", handleWheel);
+      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchmove", handleTouchMove, { passive: true });
+
       return () => {
         window.removeEventListener("wheel", handleWheel);
+        window.removeEventListener("touchstart", handleTouchStart);
+        window.removeEventListener("touchmove", handleTouchMove);
       };
     }
-  }, [zoom, translateX, final, setFinal]);
+  }, [zoom, translateX, final, setFinal, smoothUpdate]);
+
+  const points = [
+    "Advocacy-centered approach to accessibility",
+    "Community-led and impact-driven programs",
+    "Customized guidance for diverse audiences",
+    "Empowering people through practical tools and training",
+    "Collaborate with individuals to build enduring relationships"
+  ];
 
   const profileContent = (
     <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="flex flex-col lg:flex-row items-center gap-12 p-12 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
-        {/* Vertical elliptical container with responsive width */}
-        <div className="w-full sm:w-96 md:w-auto max-w-sm aspect-[3/4] overflow-hidden rounded-full">
-          <img
-            src="LizMyskaProfile.jpeg"
-            alt="Profile Picture of Liz Myska"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="text-gray-700 text-lg leading-relaxed max-w-3xl space-y-4">
-          <p className="font-extrabold text-2xl">
+      <div className="p-16 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
+        
+        <div className="text-gray-700 text-lg leading-relaxed space-y-4 px-12">
+          <p className="font-extrabold text-2xl text-center pb-4">
             When you viewed the picture shown above, what did you see?
           </p>
           <p>
@@ -77,8 +100,45 @@ export default function Home() {
             us both.  How?  That depends on YOU.
           </p>
           <p>
-            Let&apos;s <strong>Consult</strong>, <strong>Collaborate</strong>, and <strong>Commingle</strong>.
+            Let&apos;s{" "}
+              <Link href="/consult" className="hover:text-amber-600"><strong>Consult</strong></Link>,{" "}
+              <Link href="/collaborate" className="hover:text-amber-600"><strong>Collaborate</strong></Link>,{" "}and{" "}
+              <Link href="/commingle" className="hover:text-amber-600"><strong>Commingle</strong></Link>.
           </p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const profileImageContent = (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      {/* Outer container with padding */}
+      <div className="flex flex-col md:flex-row items-center gap-24 p-8 bg-white">
+    
+        {/* Left: Vertical elliptical image */}
+        <div className="w-full sm:w-96 md:w-auto max-w-sm aspect-[3/4] overflow-hidden rounded-full">
+          <img
+            src="LizMyskaProfile.jpeg"
+            alt="Profile Picture of Liz Myska"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Right: Checklist */}
+        <div className="max-w-3xl py-6 px-4 text-left">
+          <h2 className="text-3xl font-bold text-[#004459] mb-6">
+            Our Approach in Action
+          </h2>
+          <ul className="space-y-4">
+            {points.map((point, idx) => (
+              <li key={idx} className="flex items-start gap-4">
+                <CheckCircle className="text-amber-600 w-6 h-6 mt-1" />
+                <span className="text-lg text-[#004459] leading-relaxed">
+                  {point}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -121,22 +181,32 @@ export default function Home() {
 
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
-          <img
-            src="LizStreetCrossing.jpg"
-            alt="Street Crossing"
-            className="max-w-full shadow-lg" /*rounded-lg*/
-          />
+          <div className="relative">
+            <img
+              src="LizStreetCrossing.jpg"
+              alt="Crossing at a busy intersection"
+              className="max-w-full shadow-lg" /*rounded-lg*/
+            />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm">
+              Crossing at a busy intersection
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="flex flex-col-reverse lg:flex-row items-center justify-between bg-[#f6f5f0]">
         {/* Left Image Section */}
         <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
-          <img
-            src="HuntingtonAveTraining.JPG"
-            alt=""
-            className="max-w-full shadow-lg" /*rounded-lg*/
-          />
+          <div className="relative">
+            <img
+              src="HuntingtonAveTraining.JPG"
+              alt="A city walk guided by an ambassador"
+              className="max-w-full shadow-lg" /*rounded-lg*/
+            />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm">
+              A city walk guided by an ambassador
+            </div>
+          </div>
         </div>
         {/* Right Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 px-6 py-12 lg:px-24 order-1 lg:order-2">
@@ -176,11 +246,16 @@ export default function Home() {
 
         {/* Right Image Section */}
         <div className="lg:w-1/2 flex justify-center">
-          <img
-            src="BusinessImprovementDistrictGroup.jpg"
-            alt="Business Improvement District Group"
-            className="max-w-full shadow-lg" /*rounded-lg*/
-          />
+          <div className="relative">
+            <img
+              src="BusinessImprovementDistrictGroup.jpg"
+              alt="Business Improvement District Group"
+              className="max-w-full shadow-lg" /*rounded-lg*/
+            />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm">
+              Partnering with business improvement district
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -214,8 +289,10 @@ export default function Home() {
           <img className="w-full h-full object-contain transform -translate-x-1/2" src="down.svg" alt="down arrow" />
         </div>
       )}
+  
       {final && profileContent}
       {final && panelContent}
+      {final && profileImageContent}
       {final && footerContent}
     </>
   );

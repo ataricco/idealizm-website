@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <div className="bg-[#f6f5f0] text-[#004459]">
       <header className="pt-40 text-center py-16 px-6 bg-amber-100 shadow-md">
-        <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">Liaison with Liz M</h1>
+        <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">Liaison with Liz</h1>
         <p className="text-lg lg:text-xl max-w-2xl mx-auto">
           Together, we create more informed, inclusive solutions.
         </p>

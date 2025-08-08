@@ -39,7 +39,7 @@ export default function TalkFit() {
                 Born out of the challenges of the COVID-19 pandemic, Talkfit was launched to support Walkfit
                 participants, both visually impaired individuals and volunteers, who were suddenly cut off from
                 regular in-person interactions. As Walkfit adapted to changing circumstances, not everyone was 
-                able to join those transitions. Talkfit was created as a response to that reality, offering a way 
+                able to physically participate. Talkfit was created as a response to that reality, offering a way 
                 to maintain connection, combat social isolation, and ensure no one felt left behind.
               </p>
             </div>
@@ -55,7 +55,7 @@ export default function TalkFit() {
                 conversations create a level playing field where all participants can engage equally.
               </p>
               <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
-                Talkfit calls are held on the third Monday of every month from 7:00 PM to 8:30 PM EST. Just pick up the
+                Talkfit calls are held on the third Monday of every month from 7:00 p.m. to 8:30 p.m. Eastern Time. Just pick up the
                 phone and join the conversation.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function TalkFit() {
             <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
               If you or anyone you know is interested in Talkfit, reach out to
               VIP Liz M by email at{" "}
-              <a className="underline" href="mailto:lizmyska@gmail.com?subject=Walkfit Sign-Up&body=Hi Liz M, I'm interested in joining Talkfit.">
+              <a className="underline" href="mailto:lizmyska@gmail.com?subject=Talkfit Sign-Up&body=Hi Liz M, I'm interested in joining Talkfit.">
                 lizmyska@gmail.com
               </a>
               . Be sure to identify yourself and your interest in Talkfit in the email. 
@@ -77,15 +77,13 @@ export default function TalkFit() {
         </div>
 
         {/* Image */}
-        <div
-          className="flex-shrink-0 w-full lg:w-[400px] order-1 lg:order-2"
+        <div className="flex-shrink-0 w-full lg:w-[400px] order-1 lg:order-2 py-16"
           data-aos="fade-up"
-          data-aos-delay="200"
-        >
+          data-aos-delay="200">
           <Image
-            src="/LizAndWalkfitPioneer.jpeg"
+            src="/RotaryPhonesIcon.png"
             alt="Walkfit in Action"
-            className="rounded-2xl shadow-lg object-cover w-full h-auto"
+            className="object-cover w-full h-auto"
             width={400}
             height={300}
           />

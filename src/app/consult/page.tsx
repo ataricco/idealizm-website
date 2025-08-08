@@ -125,38 +125,43 @@ export default function Consult() {
         className="gap-8 px-6 lg:px-24 py-16 items-start"
         data-aos="fade-up">
 
-        <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12">
-          <div className="space-y-2 text-lg text-[#004459] font-medium">
-            <h3 className="text-2xl font-bold text-[#004459] mb-6">
+       
+
+  <div className="max-w-4xl mx-auto px-6 py-4 text-[#004459] font-medium">
+  <h2 className="text-3xl font-bold text-center text-[#004459] mb-6">
             Have an IDEA for a Liz M session?
-            </h3>
-            <div className="flex">
-              <span className="w-8 font-bold text-amber-600">I</span>
-              <span>
-                dentify (and from there innovate, integrate, interact, involve,
-                intersect, interrogate, influence, imprint)
-              </span>
-            </div>
-            <div className="flex">
-              <span className="w-8 font-bold text-amber-600">D</span>
-              <span>
-                escribe (and from here deduct, deduce, define, differentiate,
-                detail, design)
-              </span>
-            </div>
-            <div className="flex">
-              <span className="w-8 font-bold text-amber-600">E</span>
-              <span>
-                ngage (and do so by educating, exhibiting, explaining,
-                empowering)
-              </span>
-            </div>
-            <div className="flex">
-              <span className="w-8 font-bold text-amber-600">A</span>
-              <span>ccomplish</span>
-            </div>
-          </div>
-        </div>
+            </h2>
+
+  <div className="grid grid-cols-[2rem_1fr] gap-x-2 gap-y-2 text-lg max-w-full">
+
+    <span className="text-4xl font-bold text-amber-600">I</span>
+    <span>
+      dentify (and from there innovate, integrate, interact, involve,
+      intersect, interrogate, influence, imprint)
+    </span>
+
+    <span className="text-4xl font-bold text-amber-600">D</span>
+    <span>
+      escribe (and from here deduct, deduce, define, differentiate,
+      detail, design)
+    </span>
+
+    <span className="text-4xl font-bold text-amber-600">E</span>
+    <span>
+      ngage (and do so by educating, exhibiting, explaining,
+      empowering)
+    </span>
+
+    <span className="text-4xl font-bold text-amber-600">A</span>
+    <span>ccomplish</span>
+
+  </div>
+</div>
+
+
+           
+  
+      
       </section>
     </div>
   );

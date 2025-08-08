@@ -47,13 +47,18 @@ export default function Commingle() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <Image
-            src="/FeelingPlantsTwoPeople.jpg"
-            alt="Two People Feeling Plants"
-            width={400}
-            height={300}
-            className="rounded-2xl shadow-lg object-cover w-full h-auto"
-          />
+          <div className="relative">
+            <Image
+              src="/FeelingPlantsTwoPeople.jpg"
+              alt="Two People Feeling Plants"
+              width={400}
+              height={300}
+              className="rounded-2xl shadow-lg object-cover w-full h-auto"
+            />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm rounded-b-2xl">
+              Cultivating connection through the sense of touch
+            </div>
+          </div>
         </div>
       </section>
 

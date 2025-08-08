@@ -84,7 +84,8 @@ export default function WalkFit() {
           data-aos-delay="200"
           onClick={() => setIsVideoPlaying(true)}
         >
-          {!isVideoPlaying ? (
+        {!isVideoPlaying ? (
+          <div className="relative">
             <Image
               src="/LizAndWalkfitPioneer.jpeg"
               alt="Walkfit in Action"
@@ -92,6 +93,10 @@ export default function WalkFit() {
               width={400}
               height={300}
             />
+            <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm rounded-b-2xl">
+              Meet Liz M and Hans, Walkfit&apos;s co-creators
+            </div>
+          </div>
           ) : (
             <video
               className="rounded-2xl shadow-lg object-cover w-full h-auto"
