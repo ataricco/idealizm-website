@@ -15,7 +15,7 @@ export default function Collaborate() {
       <PageHeader
         title={"With Us, Not For Us"}
         subtitle={
-          "Be inspired by initiatives rooted in community, accessibility, and advocacy, and turn shared vision into collective action."
+          "Nothing about us without us. Nothing about VIPs without me, a VIP."
         }
       />
 
