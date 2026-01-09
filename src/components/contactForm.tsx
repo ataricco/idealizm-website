@@ -70,7 +70,7 @@ const ContactForm = () => {
       
       {/* Form Section */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <h3 className="text-lg font-bold mb-6 text-graytext-textBlue800">
+        <h3 className="text-lg font-bold mb-6 text-blueText">
           Please complete all required fields, indicated with a *, so we can best respond to your inquiry.
         </h3>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -177,7 +177,7 @@ const ContactForm = () => {
             )}
             <button
               type="submit"
-              className={`w-full bg-primaryYellow text-textBlue font-bold py-3 rounded-xl transition ${
+              className={`w-full bg-primaryYellow text-blueText font-bold py-3 rounded-xl transition ${
                 loading ? "opacity-50 cursor-not-allowed" : "hover:bg-green-200"
               }`}
               disabled={loading} // Disable the button while loading

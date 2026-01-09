@@ -11,9 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primaryYellow: "#fcf3cc",
-        primaryBlue: "#3e4350",
-        blueText: "#004459"
+        primaryYellow: "var(--primary-yellow)",
+        primaryBlue: "var(--primary-blue)",
+        blueText: "var(--blue-text)",
+        surfaceCream: "var(--surface-cream)",
+        accentYellow: "var(--accent-yellow)",
+        accentYellowHover: "var(--accent-yellow-hover)",
       },
     },
   },

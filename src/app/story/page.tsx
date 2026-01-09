@@ -1,34 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
 import React from "react";
+import PageHeader from "@/components/PageHeader";
+import AspectRatioMedia from "@/components/AspectRatioMedia";
+import ContentBlock from "@/components/ContentBlock";
 
 export default function Story() {
   return (
-    <div className="bg-[#f6f5f0] text-[#004459]">
+    <div className="bg-surfaceCream text-blueText">
       {/* Header */}
-      <header className="pt-40 text-center py-16 px-6 bg-amber-100 shadow-md">
-        <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">
-          Liz M's Story
-        </h1>
-        <p className="text-lg lg:text-xl max-w-2xl mx-auto">
-          When you viewed the picture, what did you see?
-        </p>
-      </header>
+      <PageHeader
+        title={"Liz M's Story"}
+        subtitle={"When you viewed the picture, what did you see?"}
+      />
 
       {/* Image */}
       <section className="py-12 px-6">
-        <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
-          <div
-            className="w-full"
-            style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}
-          >
-            <img
-              src="LizStreetCrossing.jpg"
-              alt="Street Crossing"
-              className="absolute top-0 left-0 w-full h-full object-cover"
-            />
-          </div>
-        </div>
+        <AspectRatioMedia>
+          <img
+            src="LizStreetCrossing.jpg"
+            alt="Street Crossing"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </AspectRatioMedia>
       </section>
 
       {/* Story */}
@@ -36,8 +30,8 @@ export default function Story() {
         className="gap-8 px-6 lg:px-24 py-16 items-start"
         data-aos="fade-up"
       >
-        <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12">
-          <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0 py-4">
+        <ContentBlock>
+          <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0 py-4">
             My name is Liz Myska. I am the Liz M of IDEALIZM.
             <br /> <br />
             Here is my sighted response to the question "what do you see in this
@@ -92,7 +86,7 @@ export default function Story() {
             <br /> <br />I CAN GUIDE YOU IN ATTRACTING, INTERACTING, INVOLVING,
             AND INCLUDING VIPs IN YOUR ORGANIZATION.
           </p>
-        </div>
+        </ContentBlock>
       </section>
     </div>
   );

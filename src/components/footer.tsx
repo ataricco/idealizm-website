@@ -61,8 +61,8 @@ export default function Footer({ deviceType }: { deviceType: string }) {
             <div>
               <h1>
                 “Before WalkFit, I rarely left my house alone. Now, I look
-                forward to our weekly walks. It&apos;s more than exercise —
-                it&apos;s freedom.”
+                forward to our weekly walks. It's more than exercise —
+                it's freedom.”
               </h1>
               <p className="font-bold">— Derrick R., VIP Participant</p>
             </div>
@@ -78,7 +78,7 @@ export default function Footer({ deviceType }: { deviceType: string }) {
               <h1>
                 “Guiding someone for the first time was a little nerve-wracking,
                 but the training and the people made me feel comfortable
-                quickly. I&apos;ve made friendships I&apos;ll never forget.”
+                quickly. I've made friendships I'll never forget.”
               </h1>
               <p className="font-bold">— Priya T., Volunteer</p>
             </div>
