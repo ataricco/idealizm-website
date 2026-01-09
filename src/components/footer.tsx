@@ -29,6 +29,21 @@ export default function Footer({ deviceType }: { deviceType: string }) {
     },
   };
 
+  const testimonials = [
+    {
+      quote: "I felt safe because of the assistance of my guide - I don’t think I would have otherwise.",
+      name: "Sighted Civil Engineer",
+    },
+    {
+      quote: "I appreciated the opportunity to interact with different pedestrian push buttons and curb ramps to get a sense of what is useful and difficult for a VIP.",
+      name: "Sighted Civil Engineer",
+    },
+    {
+      quote: "These trainings have been invaluable.",
+      name: "Sighted Civil Engineer",
+    },
+  ];
+
   return (
     final && (
       <footer className="bg-gray-800 text-white py-4">
@@ -50,38 +65,12 @@ export default function Footer({ deviceType }: { deviceType: string }) {
             itemClass="carousel-item-padding-80-px text-left"
             className="max-w-xl mx-auto pt-10 pb-5"
           >
-            <div>
-              <h1>
-                “Walking with WalkFit has changed the way I experience my city.
-                I feel safe, supported, and part of a wonderful community that
-                truly sees me.”
-              </h1>
-              <p className="font-bold">— Lena M., Worcester Resident</p>
-            </div>
-            <div>
-              <h1>
-                “Before WalkFit, I rarely left my house alone. Now, I look
-                forward to our weekly walks. It's more than exercise —
-                it's freedom.”
-              </h1>
-              <p className="font-bold">— Derrick R., VIP Participant</p>
-            </div>
-            <div>
-              <h1>
-                “The first time I walked blindfolded, I realized how much I take
-                sight for granted. Volunteering with WalkFit opened my eyes in a
-                completely different way.”
-              </h1>
-              <p className="font-bold">— Jordan S., Volunteer Guide</p>
-            </div>
-            <div>
-              <h1>
-                “Guiding someone for the first time was a little nerve-wracking,
-                but the training and the people made me feel comfortable
-                quickly. I've made friendships I'll never forget.”
-              </h1>
-              <p className="font-bold">— Priya T., Volunteer</p>
-            </div>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.name} className="text-left">
+                <h1>{testimonial.quote}</h1>
+                <p className="font-bold">— {testimonial.name}</p>
+              </div>
+            ))}
           </Carousel>
           <p className="text-sm">
             &copy; {new Date().getFullYear()} IdeaLizm. All rights reserved.
