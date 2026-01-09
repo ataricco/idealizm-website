@@ -3,6 +3,7 @@ import React from "react";
 import ContactForm from "@/components/contactForm";
 import PageHeader from "@/components/PageHeader";
 import ContentBlock from "@/components/ContentBlock";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -20,7 +21,19 @@ export default function Contact() {
             unmatched expertise that make her services truly invaluable.
           </p>
           <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
-            Looking to consult, collaborate, or commingle?  Fill out the form below and let's talk.
+            Looking to{" "}
+            <Link href="/consult" className="hover:text-amber-600 underline font-bold">
+              consult
+            </Link>
+            ,{" "}
+            <Link href="/collaborate" className="hover:text-amber-600 underline font-bold">
+              collaborate
+            </Link>
+            , or{" "}
+            <Link href="/commingle" className="hover:text-amber-600 underline font-bold">
+              commingle
+            </Link>
+            ? Fill out the form below and let's talk.
           </p>
         </ContentBlock>
       </section>

@@ -157,8 +157,8 @@ export default function Home() {
       <div
         ref={heroRef}
         className="relative z-0 h-screen w-full overflow-hidden bg-background"
-        // Prevent native scrolling/zooming gestures from interfering with our animation.
-        style={{ touchAction: "none" }}
+        // Initially prevent scrolling then allow scrolling after to allow to scroll on the image
+        style={{ touchAction: final ? "pan-y" : "none" }}
       >
         <Image
           src="/LizStreetCrossing.jpg"
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </div>
       {!final && (
-        <div className="z-10 fixed w-28 h-28 bottom-10 text-foreground text-white animate-bounce left-1/2">
+        <div className="z-10 fixed w-28 h-28 bottom-10 text-foreground text-white animate-bounce left-1/2 pointer-events-none">
           <ChevronsDownIcon className="w-full h-full object-contain transform -translate-x-1/2" />
         </div>
       )}

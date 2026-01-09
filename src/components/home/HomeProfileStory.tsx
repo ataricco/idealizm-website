@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function HomeProfileStory() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="p-16 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
-        <div className="text-gray-700 text-lg leading-relaxed space-y-4 px-12">
+      <div className="p-4 sm:p-8 lg:p-16 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
+        <div className="text-gray-700 text-lg leading-relaxed space-y-4 px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 pb-8 sm:pb-10 lg:pb-12">
           <p className="font-extrabold text-2xl text-center pb-4">
             When you viewed the picture shown above, what did you see?
           </p>
@@ -41,15 +41,15 @@ export default function HomeProfileStory() {
           </p>
           <p>
             Let's{" "}
-            <Link href="/consult" className="hover:text-amber-600">
+            <Link href="/consult" className="hover:text-amber-600 underline">
               <strong>Consult</strong>
             </Link>
             ,{" "}
-            <Link href="/collaborate" className="hover:text-amber-600">
+            <Link href="/collaborate" className="hover:text-amber-600 underline">
               <strong>Collaborate</strong>
             </Link>
             , and{" "}
-            <Link href="/commingle" className="hover:text-amber-600">
+            <Link href="/commingle" className="hover:text-amber-600 underline">
               <strong>Commingle</strong>
             </Link>
             .

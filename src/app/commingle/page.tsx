@@ -5,6 +5,7 @@ import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import ContentBlock from "@/components/ContentBlock";
 import CaptionedMedia from "@/components/CaptionedMedia";
+import InitiativeCard from "@/components/InitiativeCard";
 
 export default function Commingle() {
   return (
@@ -68,40 +69,27 @@ export default function Commingle() {
       {/* Initiative Cards */}
       <section className="px-6 lg:px-24 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            {
-              title: "Walkfit",
-              desc: "A walking initiative pairing sighted and non-sighted individuals.",
-              link: "/walkfit",
-            },
-            {
-              title: "Talkfit",
-              desc: "A virtual gathering that keeps the community connected.",
-              link: "/talkfit",
-            },
-            {
-              title: (
-                <>
-                Youth Voices – <em>Coming Soon</em>
-                </>
-                ),
-              desc: "Programs supporting advocacy and inclusion for young people.",
-              link: "",
-            },
-           
-          ].map((item, index) => (
-            <Link href={`/commingle/${item.link}`} key={index}>
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-700">{item.desc}</p>
-              </div>
-            </Link>
-          ))}
+          <InitiativeCard
+            title="Walkfit"
+            desc="A walking initiative pairing sighted and non-sighted individuals."
+            link="/walkfit"
+            index={0}
+          />
+          <InitiativeCard
+            title="Talkfit"
+            desc="A virtual gathering that keeps the community connected."
+            link="/talkfit"
+            index={1}
+          />
+          <InitiativeCard
+            title={
+              <>
+                Youth Voices - <em>Coming Soon</em>
+              </>
+            }
+            desc="Programs supporting advocacy and inclusion for young people."
+            index={2}
+          />
         </div>
       </section>
     </div>

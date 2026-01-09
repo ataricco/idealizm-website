@@ -14,6 +14,7 @@
   --accent-yellow-hover: #f4a931;
 }
 
+/* TODO: Add high contrast mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1f2937;

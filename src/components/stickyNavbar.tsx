@@ -32,8 +32,9 @@ export default function StickyNavbar() {
 
         {/* Hamburger Button for Mobile */}
         <button
-          className="md:hidden text-white pr-2 md:pr-0 focus:outline-none"
+          className="md:hidden text-white pr-2 md:pr-0 text-3xl leading-none focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           ☰
         </button>
