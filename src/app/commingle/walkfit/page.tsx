@@ -75,6 +75,31 @@ export default function WalkFit() {
               email. Please note that you must sign up in advance of a walk.
             </p>
           </div>
+
+          <div className="text-center lg:text-left lg:mb-0 px-6 py-4 lg:px-12">
+            <h2 className="text-2xl font-bold text-[#004459] mb-4">
+              Why Join Walkfit?
+            </h2>
+            <p className="text-[#004459] text-lg leading-relaxed mx-auto lg:mx-0">
+              Watch a short video of Walkfit in action, from participants moving together
+              to enjoying the community around them.
+            </p>
+            
+            {/* Walkfit GoPro Video */}
+            <div className="w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg">
+              <div className="relative w-full aspect-video">
+                <video
+                  controls
+                  preload="metadata"
+                  poster="/WalkfitGroupPhoto.png"
+                  className="w-full h-full object-cover"
+                >
+                <source src="/WalkfitGoProVideo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Image */}
@@ -109,7 +134,7 @@ export default function WalkFit() {
           )}
         </div>
       </section>
-    
+
       {/* Google Calendar */}
       <section className="py-12 px-6 bg-white" data-aos="fade-up">
         <h2 className="text-3xl font-bold text-center text-[#004459] mb-6">
