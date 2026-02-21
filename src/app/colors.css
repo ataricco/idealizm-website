@@ -12,9 +12,64 @@
   --surface-cream: #f6f5f0;
   --accent-yellow: #f6b846;
   --accent-yellow-hover: #f4a931;
+
+  /* New Theme Variables */
+  --nav-bg: rgba(15, 23, 42, 0.8); /* slate-900 with 80% opacity */
+  --page-header-bg: #fef3c7; /* amber-100 */
+  --page-header-text: #374151; /* gray-700 */
+  --form-bg: #f3f4f6; /* gray-100 */
+  --form-text: #004459; /* blue-text normally */
+  --input-bg: #ffffff;
+  --input-border: #d1d5db; /* gray-300 */
+  --input-text: #004459; /* blue-text normally */
+  --hover-border: transparent; /* no border by default */
+  --card-bg: #ffffff;
+  --card-title: #000000;
+  --card-text: #374151; /* gray-700 */
+  --hero-panel-bg: rgba(15, 23, 42, 0.6); /* slate-900 with 60% opacity */
+  --caption-bg: rgba(0, 0, 0, 0.6); /* black with 60% opacity */
+  --nav-shadow-color: #0f172a; /* slate-900 */
+  --nav-shadow-color-hover: rgba(15, 23, 42, 0.5); /* slate-900/50 */
+  --nav-current: #fef3c7; /* amber-100 */
+  --footer-bg: #1f2937; /* gray-800 */
 }
 
-/* TODO: Add high contrast mode */
+/* High contrast mode overrides */
+.high-contrast {
+  font-size: 106.25%;
+
+  --background: #000000;
+  --foreground: #ffffff;
+
+  --primary-yellow: #ffffff;
+  --primary-blue: #000000;
+  --blue-text: #000000;
+
+  --surface-cream: #ffffff;
+  --accent-yellow: #000000;
+  --accent-yellow-hover: #333333;
+
+  /* Thorough High Contrast Enhancements */
+  --nav-bg: #000000; /* Fully opaque */
+  --page-header-bg: #000000;
+  --page-header-text: #ffffff;
+  --form-bg: #000000;
+  --form-text: #ffffff;
+  --input-bg: #000000;
+  --input-border: #ffffff;
+  --input-text: #ffffff;
+  --hover-border: #ffffff; /* clear boundary for hover elements */
+  --card-bg: #000000;
+  --card-title: #ffffff;
+  --card-text: #ffffff;
+  --hero-panel-bg: #000000;
+  --caption-bg: #000000; /* Fully opaque black */
+  --nav-shadow-color: transparent; /* No drop shadow */
+  --nav-shadow-color-hover: transparent; /* No drop shadow */
+  --nav-current: #ffffff; /* White active page link */
+  --footer-bg: #000000; /* Black footer */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1f2937;

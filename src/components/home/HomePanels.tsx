@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import CaptionedMedia from "@/components/CaptionedMedia";
 
 type Panel = {
@@ -47,8 +47,6 @@ const PANELS: Panel[] = [
 ];
 
 export default function HomePanels() {
-  const router = useRouter();
-
   return (
     <div>
       {PANELS.map((panel) => {
@@ -70,12 +68,12 @@ export default function HomePanels() {
               <p className="text-blueText text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                 {panel.description}
               </p>
-              <button
-                className="mt-6 px-6 py-3 rounded-full bg-accentYellow text-white font-semibold shadow hover:bg-accentYellowHover transition"
-                onClick={() => router.push(panel.href)}
+              <Link
+                href={panel.href}
+                className="mt-6 inline-block px-6 py-3 rounded-full bg-accentYellow text-white font-semibold shadow hover:bg-accentYellowHover transition border border-transparent hover:border-hoverBorder"
               >
                 Learn More
-              </button>
+              </Link>
             </div>
 
             <div className={imageClasses}>

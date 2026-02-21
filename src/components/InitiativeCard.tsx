@@ -25,16 +25,16 @@ export default function InitiativeCard({
   const card = (
     <div
       className={[
-        "bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition",
-        href ? "cursor-pointer" : "",
+        "bg-cardBg p-6 rounded-xl shadow-md transition border border-transparent hover:border-hoverBorder",
+        href ? "cursor-pointer hover:shadow-lg" : "",
       ]
         .filter(Boolean)
         .join(" ")}
       data-aos="fade-up"
       data-aos-delay={index * 100}
     >
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-700">{desc}</p>
+      <h3 className="text-xl font-semibold mb-2 text-cardTitle">{title}</h3>
+      <p className="text-cardText">{desc}</p>
     </div>
   );
 

@@ -87,7 +87,7 @@ export default function WalkFit() {
         {!isVideoPlaying ? (
           <CaptionedMedia
             caption={"Meet Liz M and Hans, Walkfit's co-creators"}
-            captionClassName="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm rounded-b-2xl"
+            captionClassName="absolute bottom-0 w-full bg-captionBg text-white text-center py-2 text-sm rounded-b-2xl"
             media={
               <Image
                 src="/LizAndWalkfitPioneer.jpeg"

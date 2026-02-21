@@ -50,7 +50,7 @@ export default function Consult() {
             Workshops
           </h2>
           <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
-            Liz M's custom-designed, hands-on workshops offer dynamic opportunities to learn, interact, and build skills
+            Liz M&apos;s custom-designed, hands-on workshops offer dynamic opportunities to learn, interact, and build skills
             in a fun, supportive environment. These pint-sized, discipline-specific sessions are designed to bring people
             together, whether you're collaborating with peers or connecting with new faces.</p>
 

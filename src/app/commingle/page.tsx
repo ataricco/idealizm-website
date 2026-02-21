@@ -52,7 +52,7 @@ export default function Commingle() {
         >
           <CaptionedMedia
             caption={"Cultivating connection through the sense of touch"}
-            captionClassName="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm rounded-b-2xl"
+            captionClassName="absolute bottom-0 w-full bg-captionBg text-white text-center py-2 text-sm rounded-b-2xl"
             media={
               <Image
                 src="/FeelingPlantsTwoPeople.jpg"

@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function HomeProfileStory() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="p-4 sm:p-8 lg:p-16 w-full max-w-7xl bg-amber-100 rounded-xl shadow-lg">
-        <div className="text-gray-700 text-lg leading-relaxed space-y-4 px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 pb-8 sm:pb-10 lg:pb-12">
+      <div className="p-4 sm:p-8 lg:p-16 w-full max-w-7xl bg-pageHeaderBg text-pageHeaderText rounded-xl shadow-lg">
+        <div className="text-pageHeaderText text-lg leading-relaxed space-y-4 px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 pb-8 sm:pb-10 lg:pb-12">
           <p className="font-extrabold text-2xl text-center pb-4">
             When you viewed the picture shown above, what did you see?
           </p>
@@ -25,7 +25,7 @@ export default function HomeProfileStory() {
             white cane that the pedestrian was holding identified her as a blind person.
             I might have commented further that the motor vehicle looks poised to turn
             into the path of the unsuspecting walker. I might have registered concern
-            for the blind person's safety. Was she aware of the danger?
+            blind person&apos;s safety. Was she aware of the danger?
           </p>
           <p>
             I have just described what a sighted person might perceive and identify in
@@ -40,7 +40,7 @@ export default function HomeProfileStory() {
             you. Why? Because it benefits us both. How? That depends on YOU.
           </p>
           <p>
-            Let's{" "}
+            Let&apos;s{" "}
             <Link href="/consult" className="hover:text-amber-600 underline">
               <strong>Consult</strong>
             </Link>

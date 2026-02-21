@@ -181,7 +181,7 @@ export default function Home() {
           transition: "opacity 0.5s ease-in-out",
         }}
       >
-        <div className="bg-slate-900 bg-opacity-60 rounded-lg p-4 sm:p-5">
+        <div className="bg-heroPanelBg rounded-lg p-4 sm:p-5">
           <h1 className="text-3xl font-semibold sm:text-5xl lg:text-6xl">
             See the bigger picture
           </h1>

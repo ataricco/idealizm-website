@@ -21,7 +21,7 @@ export default function CaptionedMedia({
       <div
         className={
           captionClassName ??
-          "absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-center py-2 text-sm"
+          "absolute bottom-0 w-full bg-captionBg text-white text-center py-2 text-sm"
         }
       >
         {caption}
