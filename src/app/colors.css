@@ -32,6 +32,8 @@
   --nav-shadow-color-hover: rgba(15, 23, 42, 0.5); /* slate-900/50 */
   --nav-current: #fef3c7; /* amber-100 */
   --footer-bg: #1f2937; /* gray-800 */
+  --focus-ring: #1d4ed8;
+  --focus-ring-offset: #ffffff;
 }
 
 /* High contrast mode overrides */
@@ -68,6 +70,8 @@
   --nav-shadow-color-hover: transparent; /* No drop shadow */
   --nav-current: #ffffff; /* White active page link */
   --footer-bg: #000000; /* Black footer */
+  --focus-ring: #ffffff;
+  --focus-ring-offset: #000000;
 }
 
 @media (prefers-color-scheme: dark) {

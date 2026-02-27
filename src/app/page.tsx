@@ -77,6 +77,22 @@ export default function Home() {
     [animateStep, final]
   );
 
+  const skipIntroAnimation = useCallback(() => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+
+    zoomRef.current = MIN_ZOOM;
+    translateXRef.current = MIN_TRANSLATE_X;
+    targetZoomRef.current = MIN_ZOOM;
+    targetTranslateXRef.current = MIN_TRANSLATE_X;
+
+    setZoom(MIN_ZOOM);
+    setTranslateX(MIN_TRANSLATE_X);
+    setFinal(true);
+  }, [setFinal]);
+
   // More comfortable starting crop/zoom on mobile.
   useEffect(() => {
     if (final) return;
@@ -154,6 +170,16 @@ export default function Home() {
 
   return (
     <>
+      {!final && (
+        <button
+          type="button"
+          onClick={skipIntroAnimation}
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[110] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-md focus:shadow-md"
+        >
+          Skip intro animation
+        </button>
+      )}
+
       <div
         ref={heroRef}
         className="relative z-0 h-screen w-full overflow-hidden bg-background"

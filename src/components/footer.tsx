@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -37,6 +37,36 @@ const CustomRightArrow = ({ onClick }: any) => {
 export default function Footer({ deviceType }: { deviceType: string }) {
   const { final } = useLandingPageFinal();
   const pathname = usePathname();
+  const [isHighContrast, setIsHighContrast] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const updateHighContrast = () => {
+      setIsHighContrast(root.classList.contains("high-contrast"));
+    };
+
+    const updateReducedMotion = () => {
+      setPrefersReducedMotion(mediaQuery.matches);
+    };
+
+    updateHighContrast();
+    updateReducedMotion();
+
+    const mutationObserver = new MutationObserver(updateHighContrast);
+    mutationObserver.observe(root, { attributes: true, attributeFilter: ["class"] });
+
+    mediaQuery.addEventListener("change", updateReducedMotion);
+
+    return () => {
+      mutationObserver.disconnect();
+      mediaQuery.removeEventListener("change", updateReducedMotion);
+    };
+  }, []);
+
+  const shouldAutoPlay = deviceType !== "mobile" && !isHighContrast && !prefersReducedMotion;
 
   // Don't show footer on the homepage
   if (pathname === '/') return null;
@@ -84,7 +114,7 @@ export default function Footer({ deviceType }: { deviceType: string }) {
             responsive={responsive}
             ssr={true} // means to render carousel on server-side.
             infinite={true}
-            autoPlay={deviceType !== "mobile" ? true : false}
+            autoPlay={shouldAutoPlay}
             autoPlaySpeed={5000}
             keyBoardControl={true}
             customTransition="all .5"

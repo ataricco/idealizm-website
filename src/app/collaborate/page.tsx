@@ -158,6 +158,7 @@ export default function Collaborate() {
               <a
                 href="https://www.wccatv.com/video/connecting-the-dots"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-amber-600 hover:text-amber-800 underline transition">
                 here
               </a>{" "}
@@ -204,6 +205,7 @@ export default function Collaborate() {
                 <a
                   href="https://mahealthyagingcollaborative.org/reimagine-aging/forward-movement/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-amber-600 hover:text-amber-800 underline transition">
                   here
                 </a>{" "}

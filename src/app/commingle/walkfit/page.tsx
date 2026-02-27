@@ -119,6 +119,7 @@ export default function WalkFit() {
         <div className="max-w-4xl mx-auto">
           <iframe
             src="https://calendar.google.com/calendar/embed?src=idealizmwebsite%40gmail.com&ctz=America%2FNew_York"
+            title="Walkfit events calendar"
             style={{ border: 0 }}
             className="w-full h-[600px] rounded-xl shadow-md"
             frameBorder="0"
