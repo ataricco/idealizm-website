@@ -1,5 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
+import Image from "next/image";
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import ContentBlock from "@/components/ContentBlock";
@@ -52,7 +52,7 @@ export default function Consult() {
           <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
             Liz M&apos;s custom-designed, hands-on workshops offer dynamic opportunities to learn, interact, and build skills
             in a fun, supportive environment. These pint-sized, discipline-specific sessions are designed to bring people
-            together, whether you're collaborating with peers or connecting with new faces.</p>
+            together, whether you&apos;re collaborating with peers or connecting with new faces.</p>
 
           <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
             Each workshop is built around a theme we develop together. You can plan a single session or a series of trainings
@@ -78,9 +78,11 @@ export default function Consult() {
           {/* Row 1 */}
           <MediaTextRow
             media={
-              <img
+              <Image
                 src="Consult-MassDOTTraining.jpg"
                 alt="Mass DOT"
+                width={1200}
+                height={800}
                 className="w-full h-auto rounded"
               />
             }
@@ -95,9 +97,11 @@ export default function Consult() {
           {/* Row 2 */}
           <MediaTextRow
             media={
-              <img
+              <Image
                 src="UMassChanCampus.webp"
                 alt="Dermatology Clinic"
+                width={1200}
+                height={800}
                 className="w-full h-auto rounded"
               />
             }
@@ -113,9 +117,11 @@ export default function Consult() {
           {/* Row 3 */}
           <MediaTextRow
             media={
-              <img
+              <Image
                 src="Consult-ParatransitVehicle.png"
                 alt="Paratransit Vehicle"
+                width={1200}
+                height={800}
                 className="w-full h-auto rounded"
               />
             }

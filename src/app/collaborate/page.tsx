@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import PageHeader from "@/components/PageHeader";
@@ -61,7 +62,7 @@ export default function Collaborate() {
             <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
               Each session in the{" "}
               <span className="italic">Connecting the Dots</span> series is
-              thoughtfully tailored to its audience, whether it's medical
+              thoughtfully tailored to its audience, whether it&apos;s medical
               professionals, legal teams, custodial staff, or executive
               leadership. Sessions are customized to reflect real-world scenarios
               relevant to each group, exploring practical questions such as: How
@@ -216,9 +217,11 @@ export default function Collaborate() {
 
             {/* Right: Image + Audio */}
             <div className="max-w-md mx-auto p-4">
-              <img
+              <Image
                 src="/MovingForwardTransportation.jpg"
                 alt="ReiMAgine Aging - Moving Forward"
+                width={800}
+                height={600}
                 className="w-full object-cover rounded-t-lg"
                 style={{ marginBottom: 0 }}
               />

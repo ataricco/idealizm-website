@@ -33,7 +33,7 @@ export default function Contact() {
             <Link href="/commingle" className="hover:text-amber-600 underline font-bold">
               commingle
             </Link>
-            ? Fill out the form below and let's talk.
+            ? Fill out the form below and let&apos;s talk.
           </p>
         </ContentBlock>
       </section>

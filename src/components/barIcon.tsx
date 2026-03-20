@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type iconProps = {
   icon: string;
   handleClick: () => void;
@@ -10,10 +12,12 @@ export default function BarIcon({ icon, handleClick }: iconProps) {
       onClick={handleClick}
       aria-label="Menu"
     >
-      <img
+      <Image
         className="w-full h-full object-contain"
         src={icon}
         alt=""
+        width={64}
+        height={64}
         aria-hidden="true"
       />
     </button>

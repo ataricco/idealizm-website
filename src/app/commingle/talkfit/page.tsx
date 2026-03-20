@@ -30,7 +30,7 @@ export default function TalkFit() {
             <div className="space-y-6">
               <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
                 Talkfit is the virtual companion to Walkfit; a monthly online gathering designed 
-                to keep the spirit of connection alive when meeting in person isn't possible. While 
+                to keep the spirit of connection alive when meeting in person isn&apos;t possible. While 
                 Walkfit brings people together through physical and social activity in outdoor settings, 
                 Talkfit offers a physically distanced way to stay engaged, build friendships, and share 
                 experiences from the comfort of home.

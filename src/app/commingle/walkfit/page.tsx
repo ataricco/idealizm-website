@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */ //to fix some stuff
 "use client";
 import { useState } from "react";
 import React from "react";
@@ -36,9 +35,9 @@ export default function WalkFit() {
               Walkfit is a unique walking initiative created in 2015 by a
               Visually Impaired Person (VIP) and an optometry student. Walkfit
               pairs a person who is sighted with a person who is non-sighted and
-              just like it sounds, "we walk." But that is not all. Walkfit is
+              just like it sounds, &quot;we walk.&quot; But that is not all. Walkfit is
               much more than that. Walkfit is a way to experience the world
-              differently. It's about community, connection, and changing
+              differently. It&apos;s about community, connection, and changing
               perspectives.
             </p>
           </ContentBlock>
@@ -56,8 +55,8 @@ export default function WalkFit() {
               usually an out of door component to each walk and therefore walks
               are weather dependent. That being said, Walkfit does have access
               to a few indoor spaces so that we do not necessarily have to
-              cancel a walk due to inclement weather. We simply "go in" rather
-              than "go out."
+              cancel a walk due to inclement weather. We simply &quot;go in&quot; rather
+              than &quot;go out.&quot;
             </p>
           </ContentBlock>
 
