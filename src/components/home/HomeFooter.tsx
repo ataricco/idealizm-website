@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useDeviceType } from "@/Hooks/useDeviceType";
 
 type CredentialItem = {
   id: string;
@@ -21,7 +20,7 @@ const credentialItems: CredentialItem[] = [
       "Board Member of the Massachusetts Architectural Access Board (MAAB)",
       "Designee of the Executive Office of Economic Development (2020)",
     ],
-    image: "/credImgs/MassachusettsSeal.svg",
+    image: "/credImgs/MassachusettsSeal.png",
   },
   {
     id: "worcester",
@@ -34,12 +33,11 @@ const credentialItems: CredentialItem[] = [
   {
     id: "attorney",
     title: "Attorney at Law",
-    roles: ["Licensed and Practicing Attorney at Law in the Commonwealth of Massachusetts (1984)"],
-  },
-  {
-    id: "elder-law",
-    title: "Master of Laws (LLM)",
-    roles: ["Master of Laws (LLM) in Elder Law and Estate Planning (2013)"],
+    roles: [
+      "Licensed and Practicing Attorney at Law in the Commonwealth of Massachusetts (1984)",
+      "Master of Laws (LLM) in Elder Law and Estate Planning (2013)"
+    ],
+    image: "/credImgs/ScalesOfJustice.png",
   },
   {
     id: "connecting-the-dots",
@@ -47,20 +45,19 @@ const credentialItems: CredentialItem[] = [
     roles: [
       "Television Host of Connecting the Dots, a non-traditional legal program focused on interdisciplinary approaches to legal issues"
     ],
-    image: "/credImgs/WCCATV.jpg"
+    image: "/credImgs/WCCATV.png"
   },
   {
     id: "visions-consulting",
     title: "Visions Consulting LLC",
     roles: ["Founder and Creator of Visions Consulting LLC in 2016"],
-    image: "/credImgs/VClogo.jpg"
+    image: "/credImgs/VClogo.png"
   },
 ];
 
 export default function HomeFooter() {
-  const deviceType = useDeviceType();
-  const isMobile = deviceType === "mobile";
   const [isHighContrast, setIsHighContrast] = useState(false);
+  const [isCompactViewport, setIsCompactViewport] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -80,7 +77,20 @@ export default function HomeFooter() {
     };
   }, []);
 
-  const useCarousel = isMobile && !isHighContrast;
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsCompactViewport(window.innerWidth < 1024);
+    };
+
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+
+    return () => {
+      window.removeEventListener("resize", checkViewport);
+    };
+  }, []);
+
+  const useCarousel = isCompactViewport && !isHighContrast;
 
   const carouselResponsive = {
     all: {
@@ -89,6 +99,57 @@ export default function HomeFooter() {
       slidesToSlide: 1,
     },
   };
+
+  const CredentialDot = ({
+    onClick,
+    active,
+  }: {
+    onClick?: () => void;
+    active?: boolean;
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`h-2.5 w-2.5 rounded-full border transition ${
+        active ? "border-white bg-white" : "border-white/80 bg-transparent"
+      }`}
+      aria-label="Credential slide selector"
+    />
+  );
+
+  const CredentialArrow = ({
+    onClick,
+    direction,
+  }: {
+    onClick?: () => void;
+    direction: "left" | "right";
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={direction === "left" ? "Previous credentials" : "Next credentials"}
+      className={`absolute bottom-2 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/90 bg-black/60 text-2xl font-bold leading-none text-white transition hover:bg-black/80 ${
+        direction === "left" ? "left-[calc(50%-6.5rem)]" : "right-[calc(50%-6.5rem)]"
+      }`}
+    >
+      <svg
+        className="h-6 w-6 shrink-0"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        {direction === "left" ? (
+          <path d="M15 6L9 12l6 6" />
+        ) : (
+          <path d="M9 6l6 6-6 6" />
+        )}
+      </svg>
+    </button>
+  );
 
   return (
     <footer className="bg-footerBg text-white py-10">
@@ -159,7 +220,11 @@ export default function HomeFooter() {
             keyBoardControl
             showDots
             arrows
-            containerClass="home-credential-carousel max-w-md mx-auto pb-6"
+            customDot={<CredentialDot />}
+            customLeftArrow={<CredentialArrow direction="left" />}
+            customRightArrow={<CredentialArrow direction="right" />}
+            dotListClass="!bottom-5 !flex !items-center !justify-center !gap-2"
+            containerClass="max-w-md mx-auto pb-12"
             itemClass="px-2"
           >
             {credentialItems.map((item) => (
@@ -198,18 +263,22 @@ export default function HomeFooter() {
             ))}
           </Carousel>
         ) : (
-          <ul className="home-credential-track grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 pb-2 list-none p-0 m-0" role="list">
+          <ul className="grid grid-cols-2 gap-8 list-none m-0 p-0 pb-2 sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center lg:gap-10" role="list">
             {credentialItems.map((item) => (
-              <li key={item.id} className="list-none">
+              <li key={item.id} className="list-none lg:w-40">
                 <article
-                  className="home-credential-card group relative flex flex-col items-center text-center"
+                  className="group relative flex flex-col items-center text-center"
                   tabIndex={0}
                   aria-labelledby={`${item.id}-title`}
                   aria-describedby={`${item.id}-details`}
                 >
                   <div
-                    className={`home-credential-slot relative h-24 w-24 overflow-hidden rounded-md sm:h-28 sm:w-28 lg:h-32 lg:w-32 ${
-                      item.image ? "" : "border-2 border-dashed border-white/70 bg-white/10"
+                    className={`relative h-24 w-24 overflow-hidden rounded-md sm:h-28 sm:w-28 lg:h-32 lg:w-32 ${
+                      isHighContrast
+                        ? "border border-white bg-transparent"
+                        : item.image
+                          ? ""
+                          : "border-2 border-dashed border-white/70 bg-white/10"
                     }`}
                   >
                     {item.image && (
@@ -232,7 +301,11 @@ export default function HomeFooter() {
 
                   <div
                     id={`${item.id}-details`}
-                    className="home-credential-details rounded-md border border-white/25 bg-black/55 p-3 text-sm leading-relaxed"
+                    className={`rounded-md p-3 text-sm leading-relaxed ${
+                      isHighContrast
+                        ? "mt-3 w-full border border-white bg-black"
+                        : "pointer-events-none absolute -top-2 left-1/2 z-20 w-[min(15rem,85vw)] max-h-0 -translate-x-1/2 translate-y-[6px] scale-[0.98] overflow-hidden border border-white/25 bg-black/55 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:max-h-56 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:max-h-56 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100"
+                    }`}
                   >
                     {item.roles.map((role) => (
                       <p key={role}>{role}</p>
@@ -249,60 +322,6 @@ export default function HomeFooter() {
         </p>
       </div>
 
-      <style jsx global>{`
-        .home-credential-details {
-          position: absolute;
-          top: -0.5rem;
-          left: 50%;
-          width: min(15rem, 85vw);
-          transform: translate(-50%, 6px) scale(0.98);
-          pointer-events: none;
-          z-index: 20;
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-          transition: opacity 0.28s ease, transform 0.28s ease, max-height 0.28s ease;
-        }
-
-        .home-credential-card:hover .home-credential-details,
-        .home-credential-card:focus-within .home-credential-details {
-          max-height: 14rem;
-          opacity: 1;
-          transform: translate(-50%, 0) scale(1);
-        }
-
-        .home-credential-carousel .react-multi-carousel-dot button {
-          border-color: #ffffff;
-        }
-
-        .home-credential-carousel .react-multi-carousel-dot--active button {
-          background: #ffffff;
-        }
-
-        .high-contrast .home-credential-slot {
-          background: transparent;
-          border-color: #ffffff;
-        }
-
-        .high-contrast .home-credential-details {
-          position: static;
-          width: 100%;
-          margin-top: 0.75rem;
-          display: block;
-          max-height: none;
-          opacity: 1;
-          transform: none;
-          pointer-events: auto;
-          border-color: #ffffff;
-          background: #000000;
-        }
-
-        .high-contrast .home-credential-card:hover .home-credential-details,
-        .high-contrast .home-credential-card:focus-within .home-credential-details {
-          transform: none;
-          max-height: none;
-        }
-      `}</style>
     </footer>
   );
 }
