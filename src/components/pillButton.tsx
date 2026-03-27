@@ -19,7 +19,7 @@ const colorClasses: string[] = [
 
 // determines the color of the text on the button based on the color of the button
 const getTextColor = (colorIndex: number): string => {
-  if (colorIndex > 4) {
+  if (colorIndex > 5) {
     return "text-white";
   } else {
     return "text-black";

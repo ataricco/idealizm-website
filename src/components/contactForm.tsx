@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -25,12 +26,11 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitStatus("idle");
 
     const scriptURL = process.env.NEXT_PUBLIC_SCRIPT_URL; // web app url (in private file)
     if (!scriptURL) {
-      alert(
-        "Script URL is not defined. Please check your environment variables."
-      );
+      setSubmitStatus("error");
       return;
     }
 
@@ -46,7 +46,7 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      alert("Thank you for your message! Your response has been recorded.");
+      setSubmitStatus("success");
       setFormData({
         firstName: "",
         lastName: "",
@@ -57,7 +57,7 @@ const ContactForm = () => {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("There was an error submitting your form. Please try again.");
+      setSubmitStatus("error");
     } finally {
       //after submitted
       setLoading(false);
@@ -69,11 +69,11 @@ const ContactForm = () => {
          data-aos="fade-up">
       
       {/* Form Section */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-        <h3 className="text-lg font-bold mb-6 text-graytext-textBlue800">
+      <div className="bg-formBg p-6 rounded-lg shadow-md">
+        <h3 className="text-lg font-bold mb-6 text-formText">
           Please complete all required fields, indicated with a *, so we can best respond to your inquiry.
         </h3>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 text-formText">
           {/* First Name */}
           <div>
             <label htmlFor="firstName" className="block font-bold mb-2">
@@ -86,7 +86,7 @@ const ContactForm = () => {
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-inputBorder bg-inputBg text-inputText rounded-lg focus:ring-2 focus:ring-blueText outline-none"
             />
           </div>
 
@@ -102,7 +102,7 @@ const ContactForm = () => {
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-inputBorder bg-inputBg text-inputText rounded-lg focus:ring-2 focus:ring-blueText outline-none"
             />
           </div>
 
@@ -117,7 +117,7 @@ const ContactForm = () => {
               name="companyName"
               value={formData.companyName}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-inputBorder bg-inputBg text-inputText rounded-lg focus:ring-2 focus:ring-blueText outline-none"
             />
           </div>
 
@@ -133,7 +133,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-inputBorder bg-inputBg text-inputText rounded-lg focus:ring-2 focus:ring-blueText outline-none"
             />
           </div>
 
@@ -149,7 +149,7 @@ const ContactForm = () => {
               value={formData.phoneNumber}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-inputBorder bg-inputBg text-inputText rounded-lg focus:ring-2 focus:ring-blueText outline-none"
             />
           </div>
 
@@ -164,7 +164,7 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg resize-vertical"
+              className="w-full p-3 border border-inputBorder bg-inputBg text-inputText rounded-lg resize-vertical focus:ring-2 focus:ring-blueText outline-none"
             />
           </div>
 
@@ -177,13 +177,28 @@ const ContactForm = () => {
             )}
             <button
               type="submit"
-              className={`w-full bg-primaryYellow text-textBlue font-bold py-3 rounded-xl transition ${
+              className={`w-full bg-primaryYellow text-blueText font-bold py-3 rounded-xl transition ${
                 loading ? "opacity-50 cursor-not-allowed" : "hover:bg-green-200"
               }`}
               disabled={loading} // Disable the button while loading
+              aria-disabled={loading}
             >
               {loading ? "Submitting..." : "Submit"}
             </button>
+            
+            {/* Accessible status messages */}
+            <div aria-live="polite" className="mt-4 text-center w-full">
+              {submitStatus === "success" && (
+                <p className="text-green-700 font-bold p-3 bg-green-50 rounded border border-green-200">
+                  Thank you for your message! Your response has been recorded.
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className="text-red-700 font-bold p-3 bg-red-50 rounded border border-red-200">
+                  There was an error submitting your form. Please try again.
+                </p>
+              )}
+            </div>
           </div>
         </form>
       </div>

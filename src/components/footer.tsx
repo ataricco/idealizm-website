@@ -1,12 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLandingPageFinal } from "@/contexts/LandingPageContext";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { usePathname } from 'next/navigation'; 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CustomLeftArrow = ({ onClick }: any) => {
+  return (
+    <button
+      onClick={() => onClick()}
+      className="absolute left-2 z-10 flex items-center justify-center w-10 h-10 bg-slate-900 bg-opacity-80 text-white rounded-full hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-colors border border-transparent hover:border-white"
+      aria-label="Previous testimonial"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+  );
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CustomRightArrow = ({ onClick }: any) => {
+  return (
+    <button
+      onClick={() => onClick()}
+      className="absolute right-2 z-10 flex items-center justify-center w-10 h-10 bg-slate-900 bg-opacity-80 text-white rounded-full hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-colors border border-transparent hover:border-white"
+      aria-label="Next testimonial"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </button>
+  );
+};
+
 export default function Footer({ deviceType }: { deviceType: string }) {
   const { final } = useLandingPageFinal();
   const pathname = usePathname();
+  const [isHighContrast, setIsHighContrast] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const updateHighContrast = () => {
+      setIsHighContrast(root.classList.contains("high-contrast"));
+    };
+
+    const updateReducedMotion = () => {
+      setPrefersReducedMotion(mediaQuery.matches);
+    };
+
+    updateHighContrast();
+    updateReducedMotion();
+
+    const mutationObserver = new MutationObserver(updateHighContrast);
+    mutationObserver.observe(root, { attributes: true, attributeFilter: ["class"] });
+
+    mediaQuery.addEventListener("change", updateReducedMotion);
+
+    return () => {
+      mutationObserver.disconnect();
+      mediaQuery.removeEventListener("change", updateReducedMotion);
+    };
+  }, []);
+
+  const shouldAutoPlay = deviceType !== "mobile" && !isHighContrast && !prefersReducedMotion;
 
   // Don't show footer on the homepage
   if (pathname === '/') return null;
@@ -29,9 +89,24 @@ export default function Footer({ deviceType }: { deviceType: string }) {
     },
   };
 
+  const testimonials = [
+    {
+      quote: "I felt safe because of the assistance of my guide - I don’t think I would have otherwise.",
+      name: "Sighted Civil Engineer",
+    },
+    {
+      quote: "I appreciated the opportunity to interact with different pedestrian push buttons and curb ramps to get a sense of what is useful and difficult for a VIP.",
+      name: "Sighted Civil Engineer",
+    },
+    {
+      quote: "These trainings have been invaluable.",
+      name: "Sighted Civil Engineer",
+    },
+  ];
+
   return (
     final && (
-      <footer className="bg-gray-800 text-white py-4">
+      <footer className="bg-footerBg text-white py-4">
         <div className="container mx-auto text-center">
           <Carousel
             swipeable={true}
@@ -39,49 +114,24 @@ export default function Footer({ deviceType }: { deviceType: string }) {
             responsive={responsive}
             ssr={true} // means to render carousel on server-side.
             infinite={true}
-            autoPlay={deviceType !== "mobile" ? true : false}
+            autoPlay={shouldAutoPlay}
             autoPlaySpeed={5000}
             keyBoardControl={true}
             customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
             deviceType={deviceType}
-            itemClass="carousel-item-padding-80-px text-left"
-            className="max-w-xl mx-auto pt-10 pb-5"
+            customLeftArrow={<CustomLeftArrow />}
+            customRightArrow={<CustomRightArrow />}
+            itemClass="carousel-item-padding-80-px text-left px-16 sm:px-24"
+            className="max-w-4xl mx-auto pt-10 pb-5"
           >
-            <div>
-              <h1>
-                “Walking with WalkFit has changed the way I experience my city.
-                I feel safe, supported, and part of a wonderful community that
-                truly sees me.”
-              </h1>
-              <p className="font-bold">— Lena M., Worcester Resident</p>
-            </div>
-            <div>
-              <h1>
-                “Before WalkFit, I rarely left my house alone. Now, I look
-                forward to our weekly walks. It&apos;s more than exercise —
-                it&apos;s freedom.”
-              </h1>
-              <p className="font-bold">— Derrick R., VIP Participant</p>
-            </div>
-            <div>
-              <h1>
-                “The first time I walked blindfolded, I realized how much I take
-                sight for granted. Volunteering with WalkFit opened my eyes in a
-                completely different way.”
-              </h1>
-              <p className="font-bold">— Jordan S., Volunteer Guide</p>
-            </div>
-            <div>
-              <h1>
-                “Guiding someone for the first time was a little nerve-wracking,
-                but the training and the people made me feel comfortable
-                quickly. I&apos;ve made friendships I&apos;ll never forget.”
-              </h1>
-              <p className="font-bold">— Priya T., Volunteer</p>
-            </div>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.name} className="text-left">
+                <p className="text-xl">{testimonial.quote}</p>
+                <p className="font-bold">— {testimonial.name}</p>
+              </div>
+            ))}
           </Carousel>
           <p className="text-sm">
             &copy; {new Date().getFullYear()} IdeaLizm. All rights reserved.
