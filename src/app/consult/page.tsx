@@ -79,7 +79,7 @@ export default function Consult() {
           <MediaTextRow
             media={
               <Image
-                src="Consult-MassDOTTraining.jpg"
+                src="/Consult-MassDOTTraining.jpg"
                 alt="Mass DOT"
                 width={1200}
                 height={800}
@@ -98,7 +98,7 @@ export default function Consult() {
           <MediaTextRow
             media={
               <Image
-                src="UMassChanCampus.webp"
+                src="/UMassChanCampus.webp"
                 alt="Dermatology Clinic"
                 width={1200}
                 height={800}
@@ -118,7 +118,7 @@ export default function Consult() {
           <MediaTextRow
             media={
               <Image
-                src="Consult-ParatransitVehicle.png"
+                src="/Consult-ParatransitVehicle.png"
                 alt="Paratransit Vehicle"
                 width={1200}
                 height={800}
