@@ -32,7 +32,7 @@ const credentialItems: CredentialItem[] = [
   },
   {
     id: "attorney",
-    title: "Attorney at Law",
+    title: "Attorney at Law and Master of Laws in Elder Law and Estate Planning",
     roles: [
       "Licensed and Practicing Attorney at Law in the Commonwealth of Massachusetts (1984)",
       "Master of Laws (LLM) in Elder Law and Estate Planning (2013)"
@@ -175,14 +175,16 @@ export default function HomeFooter() {
                     >
                       <div className="flex items-center gap-3">
                         {item.image && (
-                          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded border border-white bg-white">
-                            <Image
-                              src={item.image}
-                              alt={`${item.title} icon`}
-                              fill
-                              sizes="40px"
-                              className="object-contain p-1"
-                            />
+                          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white bg-white p-1.5">
+                            <div className="relative h-full w-full">
+                              <Image
+                                src={item.image}
+                                alt={`${item.title} icon`}
+                                fill
+                                sizes="40px"
+                                className="object-contain"
+                              />
+                            </div>
                           </div>
                         )}
                         <span
@@ -234,18 +236,22 @@ export default function HomeFooter() {
                 aria-labelledby={`${item.id}-title`}
               >
                 <div
-                  className={`relative h-24 w-24 overflow-hidden rounded-md ${
-                    item.image ? "" : "border-2 border-dashed border-white/70 bg-white/10"
+                  className={`relative h-28 w-28 overflow-hidden sm:h-32 sm:w-32 ${
+                    item.image
+                      ? "rounded-xl bg-white p-3 shadow-sm"
+                      : "rounded-md border-2 border-dashed border-white/70 bg-white/10"
                   }`}
                 >
                   {item.image && (
-                    <Image
-                      src={item.image}
-                      alt={`${item.title} icon`}
-                      fill
-                      sizes="96px"
-                      className="object-contain p-2"
-                    />
+                    <div className="relative h-full w-full min-h-0">
+                      <Image
+                        src={item.image}
+                        alt={`${item.title} icon`}
+                        fill
+                        sizes="128px"
+                        className="object-contain"
+                      />
+                    </div>
                   )}
                 </div>
                 <h3
@@ -273,22 +279,22 @@ export default function HomeFooter() {
                   aria-describedby={`${item.id}-details`}
                 >
                   <div
-                    className={`relative h-24 w-24 overflow-hidden rounded-md sm:h-28 sm:w-28 lg:h-32 lg:w-32 ${
-                      isHighContrast
-                        ? "border border-white bg-transparent"
-                        : item.image
-                          ? ""
-                          : "border-2 border-dashed border-white/70 bg-white/10"
+                    className={`relative h-28 w-28 overflow-hidden sm:h-32 sm:w-32 lg:h-36 lg:w-36 ${
+                      item.image
+                        ? "rounded-xl bg-white p-3 shadow-sm"
+                        : "rounded-md border-2 border-dashed border-white/70 bg-white/10"
                     }`}
                   >
                     {item.image && (
-                      <Image
-                        src={item.image}
-                        alt={`${item.title} icon`}
-                        fill
-                        sizes="128px"
-                        className="object-contain p-2"
-                      />
+                      <div className="relative h-full w-full min-h-0">
+                        <Image
+                          src={item.image}
+                          alt={`${item.title} icon`}
+                          fill
+                          sizes="144px"
+                          className="object-contain"
+                        />
+                      </div>
                     )}
                   </div>
 
