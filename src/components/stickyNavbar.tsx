@@ -1,4 +1,5 @@
 "use client";  // ensure this is a client component
+import Image from "next/image";
 import Link from "next/link";
 
 import { useState, useEffect } from 'react';
@@ -50,8 +51,21 @@ export default function StickyNavbar() {
       <div className="w-full flex justify-between items-center px-4 md:px-8 py-2">
         
         {/* Left Item */}
-        <div className="text-4xl font-bold pl-2 md:pl-0">
-          <Link href="/" className="hover:text-gray-300">IdeaLizm</Link>
+        <div className="pl-2 md:pl-0">
+          <Link
+            href="/"
+            className="inline-flex items-center"
+            aria-label="Idealizm home"
+          >
+            <Image
+              src="/IdealizmLogo.svg"
+              alt="Idealizm"
+              width={180}
+              height={37}
+              priority
+              className="h-9 w-auto md:h-10"
+            />
+          </Link>
         </div>
 
         {/* Right Items Container */}

@@ -324,7 +324,7 @@ export default function HomeFooter() {
         )}
 
         <p className="mt-10 text-center text-sm">
-          &copy; {new Date().getFullYear()} IdeaLizm. All rights reserved.
+          &copy; {new Date().getFullYear()} Idealizm. All rights reserved.
         </p>
       </div>
 

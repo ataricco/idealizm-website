@@ -134,7 +134,7 @@ export default function Footer({ deviceType }: { deviceType: string }) {
             ))}
           </Carousel>
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} IdeaLizm. All rights reserved.
+            &copy; {new Date().getFullYear()} Idealizm. All rights reserved.
           </p>
         </div>
       </footer>

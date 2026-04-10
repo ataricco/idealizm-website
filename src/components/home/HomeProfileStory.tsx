@@ -13,7 +13,7 @@ export default function HomeProfileStory() {
           </p>
           <p>
             My name is <span className="font-bold">Liz Myska</span>. I am the Liz M of
-            IdeaLizm. Here is my sighted answer to the question above: &quot;I see a
+            Idealizm. Here is my sighted answer to the question above: &quot;I see a
             streetscape. There is a crosswalk and a pedestrian.&quot; This is what first
             met my eye. I would not necessarily have commented further unless prodded
             to do so.

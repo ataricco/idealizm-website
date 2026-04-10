@@ -6,8 +6,15 @@ import { LandingPageProvider } from "@/contexts/LandingPageContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "IdeaLizm",
+  title: "Idealizm",
   description: "See the world differently",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
