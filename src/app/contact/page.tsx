@@ -23,15 +23,15 @@ export default function Contact() {
           <p className="text-blueText text-lg leading-relaxed mx-auto lg:mx-0">
             Looking to{" "}
             <Link href="/consult" className="hover:text-amber-600 underline font-bold">
-              consult
+              Consult
             </Link>
             ,{" "}
             <Link href="/collaborate" className="hover:text-amber-600 underline font-bold">
-              collaborate
+              Collaborate
             </Link>
             , or{" "}
             <Link href="/commingle" className="hover:text-amber-600 underline font-bold">
-              commingle
+              Commingle
             </Link>
             ? Fill out the form below and let&apos;s talk.
           </p>
