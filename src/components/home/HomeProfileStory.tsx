@@ -24,7 +24,7 @@ export default function HomeProfileStory() {
             motor vehicle. How did I know it was a blind person in the picture? The
             white cane that the pedestrian was holding identified her as a blind person.
             I might have commented further that the motor vehicle looks poised to turn
-            into the path of the unsuspecting walker. I might have registered concern
+            into the path of the unsuspecting walker. I might have registered concern for the
             blind person&apos;s safety. Was she aware of the danger?
           </p>
           <p>
