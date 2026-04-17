@@ -63,7 +63,7 @@ export default function StickyNavbar() {
               width={180}
               height={37}
               priority
-              className="h-9 w-auto md:h-10"
+              className="h-9 w-auto md:h-10 -translate-y-0"
             />
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default function StickyNavbar() {
           </div>
 
           {/* High Contrast toggle (switch) */}
-          <div className="flex flex-col items-center gap-0.5">
+          <div className="flex flex-col items-center gap-0.5 translate-y-2.5">
             <button
               id="high-contrast-switch"
               type="button"
@@ -112,7 +112,7 @@ export default function StickyNavbar() {
 
           {/* Hamburger Button for Mobile */}
           <button
-            className="lg:hidden text-white pr-2 md:pr-0 text-3xl leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+            className="lg:hidden text-white pr-2 md:pr-0 text-3xl leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded translate-y-1"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label="Main menu"
